@@ -9,8 +9,8 @@ export enum SegmentType {
 
 export type FormSegmentData = {
     type: SegmentType,
-    id: string,
-    title: string,
+    id: number,
+    question: string,
     required: boolean,
     choices?: ChoiceData[],
     selects?: SelectData[],

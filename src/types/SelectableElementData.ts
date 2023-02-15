@@ -1,5 +1,5 @@
 type ChoiceData = {
-    id: string,
+    id: number,
     data: string,
     selected: boolean,
 }
