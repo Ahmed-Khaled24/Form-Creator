@@ -12,8 +12,8 @@ type FormSegmentData = {
     id: string,
     title: string,
     required: boolean,
-    choices: ChoiceData[],
-    selects: SelectData[],
+    choices?: ChoiceData[],
+    selects?: SelectData[],
     answer: string,
 }
 
