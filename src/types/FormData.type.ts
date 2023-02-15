@@ -6,7 +6,7 @@ enum RenderMode {
 }
 
 type FormData = {
-    segments: FormSegmentData,
+    segments: FormSegmentData[],
     mode: RenderMode,
     title: string,
 }
