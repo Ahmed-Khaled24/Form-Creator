@@ -1,14 +1,12 @@
 import { FormSegmentData } from "./FormSegmentData.type"
 
-enum RenderMode {
+export enum RenderMode {
     edit,
     view,
 }
 
-type FormData = {
+export type FormData = {
     segments: FormSegmentData[],
     mode: RenderMode,
     title: string,
 }
-
-export type {FormData, RenderMode}

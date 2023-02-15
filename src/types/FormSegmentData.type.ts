@@ -1,13 +1,13 @@
 import { ChoiceData, SelectData } from "./SelectableElementData";
 
-enum SegmentType {
+export enum SegmentType {
     shortAnswer,
     paragraph,
     multipleChoice,
     multiSelect
 }
 
-type FormSegmentData = {
+export type FormSegmentData = {
     type: SegmentType,
     id: string,
     title: string,
@@ -16,5 +16,3 @@ type FormSegmentData = {
     selects?: SelectData[],
     answer: string,
 }
-
-export type {FormSegmentData, SegmentType};
