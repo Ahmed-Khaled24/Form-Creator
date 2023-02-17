@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const SelectDiv = styled.div`
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
 `
 

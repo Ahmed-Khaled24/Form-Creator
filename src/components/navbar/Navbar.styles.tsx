@@ -5,7 +5,6 @@ export const LinksDiv = styled.div`
     display: flex;
     gap: 50px;
     align-items: center;
-    color: 
 `;
 
 export const BrandNameDiv = styled.div`
@@ -34,13 +33,12 @@ export const NavContainer1366 = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;
-
 `;
 
 export const StyledNavbar = styled.div`
     background-color: #313644;
     display: flex;
-    width: 100vw;
+    width: 100%;
     color: white;
     justify-content: center;
 `;

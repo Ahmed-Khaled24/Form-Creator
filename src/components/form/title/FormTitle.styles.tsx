@@ -5,7 +5,7 @@ const width = 900;
 const fontSize = 32;
 
  export const EditableTitle = styled.input`
-    width: ${width}px;
+    width: 60%;
     padding: 5px 20px;
     border: none;
     border-bottom: 2px solid white;

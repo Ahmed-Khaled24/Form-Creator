@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const SegmentDiv = styled.div`
-    width: 900px;
+    width: 60%;
     border-radius: 5px;
     background-color: #313644;
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 `

@@ -7,6 +7,7 @@
 body {
   background-color: #131112;
   font-family: 'Inter', sans-serif;
+  color: #343a40;
 }
 
 #root {
@@ -14,4 +15,13 @@ body {
 	flex-direction: column;
 	align-items: center;
 	min-height: 100vh;
+}
+
+input:focus-visible,select:focus-visible{
+	outline: none;
+}
+
+input, textarea, select {
+	background-color: #ced4da;
+	color: #343a40;
 }

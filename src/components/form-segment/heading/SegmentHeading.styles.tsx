@@ -4,6 +4,7 @@ export const HeadingDiv = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 `
 
 export const EditableQuestion = styled.input`
@@ -11,13 +12,11 @@ export const EditableQuestion = styled.input`
     font-family: inherit;
     font-size: 24px;
     padding: 5px 10px;
-    border-radius: 5px;
-    width: 65%;
+    flex: 1;
 `
 
 export const SelectQuestionType = styled.select`
     padding: 5px 10px;
-    border-radius: 5px;
     width: 30%;
     font-size: 18px;
     align-self: stretch;
