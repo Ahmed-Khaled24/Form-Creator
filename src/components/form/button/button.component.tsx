@@ -2,14 +2,14 @@ import { ButtonHTMLAttributes } from 'react';
 
 type Props = {
 	icon: string;
-	alt: string;
+	title: string;
 	onClick: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Btn = ({ icon, alt, onClick, ...other }: Props) => {
+const Btn = ({ icon, title, onClick, ...other }: Props) => {
 	return (
-		<button onClick={onClick} {...other}>
-			<img src={icon} alt={alt} />
+		<button onClick={onClick} {...other} title={title}>
+			<img src={icon} alt=''/>
 		</button>
 	);
 };
