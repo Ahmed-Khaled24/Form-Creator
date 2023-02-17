@@ -9,12 +9,18 @@ export const HeadingDiv = styled.div`
 export const EditableQuestion = styled.input`
     border: none;
     font-family: inherit;
-    font-size: 32px;
-    padding: 5px 20px;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 65%;
 `
 
 export const SelectQuestionType = styled.select`
-    padding: 5px 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 30%;
+    font-size: 18px;
+    align-self: stretch;
 `
 
 export const Question = styled.p`

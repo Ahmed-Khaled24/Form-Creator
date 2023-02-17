@@ -1,4 +1,5 @@
 import { OptionalBtn, RequiredBtn, SegmentFooterDiv, DeleteSegmentBtn } from './SegmentFooter.styles';
+import deleteIcon from '../../../assets/delete.svg'
 
 type Props = {
     parentSegmentId: number,
@@ -17,13 +18,13 @@ const SegmentFooter = ({required, parentSegmentId, deleteSegment, setRequired, u
                 <RequiredBtn onClick={() =>{
                     unsetRequired(parentSegmentId)
                     }
-                }> Required </RequiredBtn> :
+                }> required </RequiredBtn> :
                 <OptionalBtn onClick={() => {
                     setRequired(parentSegmentId)}
-                }> Optional </OptionalBtn>
+                }> optional </OptionalBtn>
             }
             <DeleteSegmentBtn onClick={()=>deleteSegment(parentSegmentId)}>
-                <img src="" alt="delete-icon" />
+                <img src={deleteIcon} alt="delete-icon" title='Delete question'/>
             </DeleteSegmentBtn>
        </SegmentFooterDiv>
     )

@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { RenderMode } from '../../../types/FormData.type';
 import { SegmentType } from '../../../types/FormSegmentData.type';
 import { EditableQuestion, HeadingDiv, Question, QuestionCondition, SelectQuestionType } from './SegmentHeading.styles';
+import shortAnswerIcon from '../../../assets/short answer.svg'
 type Props = {
     question: string,
     mode: RenderMode,
@@ -26,22 +27,28 @@ const SegmentHeading = ({question, mode, required, parentSegmentId, changeSegmen
     return (
         <HeadingDiv>
             {
-                mode === RenderMode.edit ? ( 
+                mode === RenderMode.edit ? 
                     <Fragment>
                         <EditableQuestion type='text' placeholder='Type your question' onChange={handleChangeQuestionText}/>
                         <SelectQuestionType onChange={handleChangeQuestionType}>
-                            <option value={SegmentType.shortAnswer}> short answer </option>
-                            <option value={SegmentType.paragraph}> paragraph </option>
-                            <option value={SegmentType.multipleChoice}> multiple choice </option>
-                            <option value={SegmentType.multiSelect}> multi select </option>
+                            <option value={SegmentType.shortAnswer}> 
+                                short answer 
+                            </option>
+                            <option value={SegmentType.paragraph}> 
+                                paragraph 
+                            </option>
+                            <option value={SegmentType.multipleChoice}>
+                                multiple choice 
+                            </option>
+                            <option value={SegmentType.multiSelect}>
+                                multi select
+                            </option>
                         </SelectQuestionType>
-                    </Fragment>
-                ) : (
+                    </Fragment> : 
                     <Fragment>
                         <Question> {question} </Question>
                         <QuestionCondition> {required?'Required':'Optional'} </QuestionCondition>
                     </Fragment> 
-                )
             }
         </HeadingDiv>
     )
