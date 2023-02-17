@@ -39,6 +39,7 @@ const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, 
 				<InputText
 					type='text'
 					onChange={handleChangeChoiceText}
+					value={choiceData.data}
 				/> : 
 				<Paragraph>{data}</Paragraph>
 			}
