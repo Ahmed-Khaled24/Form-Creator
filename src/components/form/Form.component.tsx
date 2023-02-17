@@ -4,11 +4,13 @@ import { SegmentType, FormSegmentData } from '../../types/FormSegmentData.type';
 import fileDownload from 'js-file-download';
 import { ChoiceData, SelectData } from '../../types/SelectableElementData';
 import { FormBody } from './Form.styles';
-import { AddBtn, SaveBtn } from './button/button.styles';
 import addIcon from '../../assets/plus.svg'
 import saveIcon from '../../assets/save.svg'
+import jsonIcon from '../../assets/json.png'
+import htmlIcon from '../../assets/html.png'
 import FormTitle from './title/FormTitle.comopnent';
 import FromSegment from '../form-segment/FormSegment.component'
+import FormButtons from './formButtons/formButtons.component';
 
 function generateId(): number {
 	return Math.trunc(Math.random() * 1e6);
@@ -22,6 +24,7 @@ const formInitialValues: FormData = {
 
 const Form = () => {
 	const [formData, setFormData] = useState<FormData>(formInitialValues);
+
 	// Form related
 	function changeFormTitle(title: string) {
 		setFormData({
@@ -44,7 +47,15 @@ const Form = () => {
 			segments: [...formData.segments, defaultSegment],
 		});
 	}
-	function saveCurrentFrom() {
+	function saveFromAsJSON() {
+		const filename = formData.title;
+		fileDownload(JSON.stringify(formData), `${filename}.json`);
+	}
+	function saveFromAsHTML() {
+		const filename = formData.title;
+		fileDownload(JSON.stringify(formData), `${filename}.json`);
+	}
+	function loadJSONForm() {
 		const filename = formData.title;
 		fileDownload(JSON.stringify(formData), `${filename}.json`);
 	}
@@ -141,7 +152,7 @@ const Form = () => {
 	function deleteChoice(
 		segmentId: number,
 		choiceId: number
-	) {
+	) {	
 		const updatedSegments = [...formData.segments];
 		const targetSegmentIndex = updatedSegments.findIndex(
 			(segment) => segment.id === segmentId
@@ -234,6 +245,33 @@ const Form = () => {
 		});
 	}
 
+	const formButtons = {
+		addNewSegment: {
+			icon: addIcon,
+			title: 'Add New Question',
+			alt: 'add new question',
+			onClickHandler: addNewSegment
+		},
+		saveAsJSON: {
+			icon: jsonIcon,
+			title: 'Export As Json',
+			alt: 'export as json',
+			onClickHandler: saveFromAsJSON
+		},
+		saveAsHTML: {
+			icon: htmlIcon,
+			title: 'Export As HTML',
+			alt: 'export as html',
+			onClickHandler: saveFromAsHTML,
+		},
+		loadFormAsJSON: {
+			icon: jsonIcon,
+			title: 'Load JSON Form',
+			alt: 'load json form',
+			onClickHandler: loadJSONForm,
+		}
+	}
+
 	return (
 		<FormBody>
 			<FormTitle
@@ -259,15 +297,9 @@ const Form = () => {
 					unsetRequired={unsetRequired}
 				/>
 			))}
-			<SaveBtn
-				icon={saveIcon}
-				title='Save Current Form'
-				onClick={saveCurrentFrom}
-			/>
-			<AddBtn
-				icon={addIcon}
-				title='Add New Question'
-				onClick={addNewSegment}
+			<FormButtons 
+				mode={formData.mode}
+				buttons = {formButtons}
 			/>
 		</FormBody>
 	);
