@@ -24,10 +24,12 @@ export const SelectQuestionType = styled.select`
 
 export const Question = styled.p`
     font-size: 32px;
+    color: #e9ecef;
     letter-spacing: -1px;
 `
 
 export const QuestionCondition = styled.p`
-    color: grey:
+    color: #e9ecef;
+    opacity: 0.7;
     font-size: 16px;
 `

@@ -22,5 +22,12 @@ export const FormBtn = styled.button`
     img {
         width: ${iconDimensions}px;
         height: ${iconDimensions}px;
+        @media(max-width:950px){
+            width: 25px;
+            height: 25px;
+        }
+    }
+    @media(max-width:950px){
+        padding: 10px;
     }
 `

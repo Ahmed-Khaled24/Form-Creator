@@ -43,6 +43,8 @@ export const InputText = styled.input` // for choice and select
 
 export const Paragraph = styled.p` // for choice and select
     font-size: ${fontSize}px;
+    color: #e9ecef;
+    flex: 1;
 `
 
 export const DeleteBtn = styled.button` // for choice and select
