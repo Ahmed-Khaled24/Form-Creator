@@ -5,12 +5,15 @@ import fileDownload from 'js-file-download';
 import { ChoiceData, SelectData } from '../../types/SelectableElementData';
 import { FormBody } from './Form.styles';
 import addIcon from '../../assets/plus.svg'
-import saveIcon from '../../assets/save.svg'
 import jsonIcon from '../../assets/json.png'
 import htmlIcon from '../../assets/html.png'
 import FormTitle from './title/FormTitle.comopnent';
 import FromSegment from '../form-segment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
+
+type Props = {
+	mode: RenderMode,
+}
 
 function generateId(): number {
 	return Math.trunc(Math.random() * 1e6);
@@ -18,11 +21,10 @@ function generateId(): number {
 
 const formInitialValues: FormData = {
 	segments: [],
-	mode: RenderMode.edit,
-	title: 'Testing',
+	title: 'Untitled Form',
 };
 
-const Form = () => {
+const Form = ({mode}: Props) => {
 	const [formData, setFormData] = useState<FormData>(formInitialValues);
 
 	// Form related
@@ -53,7 +55,7 @@ const Form = () => {
 	}
 	function saveFromAsHTML() {
 		const filename = formData.title;
-		fileDownload(JSON.stringify(formData), `${filename}.json`);
+		fileDownload(document.documentElement.innerHTML, `${filename}.html`);
 	}
 	function loadJSONForm() {
 		const filename = formData.title;
@@ -277,11 +279,11 @@ const Form = () => {
 			<FormTitle
 				setTitle={changeFormTitle}
 				title={formData.title}
-				mode={formData.mode}
+				mode={mode}
 			/>
 			{formData.segments.map((segment) => (
-				<FromSegment
-					mode={formData.mode}
+				<FromSegment key={segment.id}
+					mode={mode}
 					formSegmentData={segment}
 					changeQuestionText={changeQuestionText}
 					changeSegmentType={changeSegmentType}
@@ -298,7 +300,7 @@ const Form = () => {
 				/>
 			))}
 			<FormButtons 
-				mode={formData.mode}
+				mode={mode}
 				buttons = {formButtons}
 			/>
 		</FormBody>

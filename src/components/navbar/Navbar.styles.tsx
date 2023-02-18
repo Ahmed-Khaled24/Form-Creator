@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const LinksDiv = styled.div`
     display: flex;
@@ -23,13 +22,18 @@ export const LargeText = styled.p`
     font-weight: 700;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.button`
     text-decoration: none;
     color: inherit;
+    border: none;
+    font-size: 18px;
+    font-family: inherit;
+    background-color: transparent;
+    cursor: pointer;
 `;
 
 export const NavContainer1366 = styled.div`
-    width: 1366px;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;

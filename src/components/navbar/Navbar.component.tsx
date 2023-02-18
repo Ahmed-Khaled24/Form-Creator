@@ -1,4 +1,5 @@
 import { StyledNavbar } from './Navbar.styles';
+import { RenderMode } from '../../types/FormData.type';
 import {
 	BrandNameDiv,
 	LargeText,
@@ -10,9 +11,10 @@ import {
 type Props = {
 	brand: { smallText: string; largeText: string };
 	navLinks: string[];
+	changeMode: (mode: RenderMode) => void;
 };
 
-const Navbar = ({ brand, navLinks }: Props) => {
+const Navbar = ({ brand, navLinks, changeMode }: Props) => {
 	return (
 		<StyledNavbar>
 			<NavContainer1366>
@@ -22,7 +24,13 @@ const Navbar = ({ brand, navLinks }: Props) => {
 				</BrandNameDiv>
 				<LinksDiv>
 					{navLinks.map((link) => (
-						<StyledLink to={link.toLowerCase()}> {link} </StyledLink>
+						<StyledLink onClick={
+							(e) => {
+								link.toLowerCase() === 'creator' ? 
+								changeMode(RenderMode.edit) :
+								changeMode(RenderMode.view)
+							}
+						}> {link} </StyledLink>
 					))}
 				</LinksDiv>
 			</NavContainer1366>

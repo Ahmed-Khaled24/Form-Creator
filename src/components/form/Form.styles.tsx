@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FormBody = styled.div`
-    width: 1366px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 50px;

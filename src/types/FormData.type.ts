@@ -7,6 +7,5 @@ export enum RenderMode {
 
 export type FormData = {
     segments: FormSegmentData[],
-    mode: RenderMode,
     title: string,
 }
