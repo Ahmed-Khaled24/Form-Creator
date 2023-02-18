@@ -36,16 +36,22 @@ const SegmentBody = ({
 
 	switch (formSegmentData.type) {
 		case SegmentType.shortAnswer: {
-			return mode === RenderMode.edit ? 
-				<ShortAnswerBody readOnly={true} /> : 
-				<ShortAnswerBody onChange={textAnswerChangeHandler} />
-			;
+			return (
+				<ShortAnswerBody
+					readOnly={mode === RenderMode.edit}
+					onChange={textAnswerChangeHandler}
+					placeholder={`Type your answer`}
+				/>
+			); 
 		}
 		case SegmentType.paragraph: {
-			return mode === RenderMode.edit ? 
-				<ParagraphAnswerBody readOnly={true} /> : 
-				<ParagraphAnswerBody onChange={textAnswerChangeHandler} />
-			;
+			return (
+				<ParagraphAnswerBody
+					readOnly={mode === RenderMode.edit}
+					onChange={textAnswerChangeHandler}
+					placeholder={`Type your answer`}
+				/>
+			);
 		}
 		case SegmentType.multipleChoice: {
 			return (

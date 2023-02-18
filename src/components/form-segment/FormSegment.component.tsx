@@ -37,18 +37,19 @@ const FormSegment = ({
 	deleteSegment,
 	setRequired,
 	unsetRequired}: Props) => {
-    const { question, id, required} = formSegmentData;
+    const { question, id, required, type} = formSegmentData;
     return (
-		<SegmentDiv>
+		<SegmentDiv className={mode === RenderMode.view ? 'no-footer' : ''}>
 			<SegmentHeading
 				question={question}
 				mode={mode}
 				required={required}
 				parentSegmentId={id}
+				questionType={type}
 				changeQuestionText={changeQuestionText}
 				changeSegmentType={changeSegmentType}
 			/>
-            <SegmentBody 
+			<SegmentBody
 				formSegmentData={formSegmentData}
 				mode={mode}
 				changeSegmentAnswer={changeSegmentAnswer}
@@ -59,13 +60,17 @@ const FormSegment = ({
 				deleteSelect={deleteSelect}
 				addNewSelect={addNewSelect}
 			/>
-			<SegmentFooter 
-				deleteSegment={deleteSegment}
-				setRequired={setRequired}
-				unsetRequired={unsetRequired}
-				required={required}
-				parentSegmentId={id}
-			/>
+			{mode === RenderMode.edit ? (
+				<SegmentFooter
+					deleteSegment={deleteSegment}
+					setRequired={setRequired}
+					unsetRequired={unsetRequired}
+					required={required}
+					parentSegmentId={id}
+				/>
+			) : (
+				''
+			)}
 		</SegmentDiv>
 	);
 }

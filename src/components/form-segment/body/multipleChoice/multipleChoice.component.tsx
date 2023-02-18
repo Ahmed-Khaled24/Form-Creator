@@ -2,6 +2,7 @@ import { Fragment } from "react"
 import { ChoiceData } from "../../../../types/SelectableElementData"
 import { RenderMode } from '../../../../types/FormData.type';
 import Choice from "./choice/Choice.component";
+import { AddNewBtn } from '../SegmentBody.styles';
 type Props = {
     mode: RenderMode,
     choices: ChoiceData[] | undefined,
@@ -24,7 +25,7 @@ const MultipleChoiceBody = ({
 	return (
 		<Fragment>
 			{choices?.map((choice) => (
-				<Choice
+				<Choice key={choice.id}
 					mode={mode}
 					choiceData={choice}
 					parentSegmentId={parentSegmentId}
@@ -33,7 +34,15 @@ const MultipleChoiceBody = ({
 					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			))}
-			<button onClick={() => addNewChoice(parentSegmentId)}>Add</button>
+			{ mode === RenderMode.edit ?
+				<AddNewBtn onClick={() => addNewChoice(parentSegmentId)}> 
+					<span className="material-symbols-rounded">
+						add_circle
+					</span>				
+					Add 
+				</AddNewBtn> :
+				''
+			}
 		</Fragment>
 	);
 };

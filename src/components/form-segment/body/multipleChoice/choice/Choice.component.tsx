@@ -2,6 +2,7 @@ import { ChoiceData} from '../../../../../types/SelectableElementData';
 import { RenderMode } from '../../../../../types/FormData.type';
 import { ChoiceDiv, RadioInput} from './Choice.styles';
 import { DeleteBtn, InputText, Paragraph } from '../../SegmentBody.styles';
+import { Fragment } from 'react';
 
 type Props = {
     mode: RenderMode,
@@ -36,14 +37,17 @@ const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, 
 			/>
 			{
                 mode === RenderMode.edit ? 
-				<InputText
-					type='text'
-					onChange={handleChangeChoiceText}
-					value={choiceData.data}
-				/> : 
+				<Fragment>
+					<InputText
+						type='text'
+						onChange={handleChangeChoiceText}
+						value={data}
+					/>
+					<DeleteBtn onClick={e => deleteChoice(parentSegmentId, id)} title='Delete choice' > ✕ </DeleteBtn>
+				</Fragment>
+				: 
 				<Paragraph>{data}</Paragraph>
 			}
-			<DeleteBtn onClick={e => deleteChoice(parentSegmentId, id)}> ✕ </DeleteBtn>
 		</ChoiceDiv>
 	);
 }

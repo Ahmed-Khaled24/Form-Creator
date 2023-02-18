@@ -49,8 +49,8 @@ const Select = ({
 			/>
 			{mode === RenderMode.edit ? (
 				<Fragment>
-					<InputText type='text' onChange={handleChangeSelectText} value={data} />
-					<DeleteBtn onClick={(e) => deleteSelect(parentSegmentId, id)}> ✕ </DeleteBtn>
+					<InputText type='text' onChange={handleChangeSelectText} value={data}/>
+					<DeleteBtn onClick={(e) => deleteSelect(parentSegmentId, id)} title="Delete element"> ✕ </DeleteBtn>
 				</Fragment>
 			) : (
 				<Paragraph> {data} </Paragraph>

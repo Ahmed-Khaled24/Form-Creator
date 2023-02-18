@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Select from './select/select.component';
 import { SelectData } from '../../../../types/SelectableElementData';
 import { RenderMode } from '../../../../types/FormData.type';
+import { AddNewBtn } from '../SegmentBody.styles';
 
 type Props = {
 	selects: SelectData[] | undefined;
@@ -27,7 +28,7 @@ const MultiSelectBody = ({
 	return (
 		<Fragment>
 			{selects?.map((select) => (
-				<Select
+				<Select key={select.id}
 					answer={answer}
 					parentSegmentId={parentSegmentId}
 					selectData={select}
@@ -37,7 +38,16 @@ const MultiSelectBody = ({
 					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			))}
-			<button onClick={() => addNewSelect(parentSegmentId)}>Add</button>
+
+			{	mode === RenderMode.edit ?
+				<AddNewBtn onClick={() => addNewSelect(parentSegmentId)}>
+					<span className="material-symbols-rounded">
+						add_box
+					</span>
+					Add
+				</AddNewBtn> :
+				''
+			}
 		</Fragment>
 	);
 };
