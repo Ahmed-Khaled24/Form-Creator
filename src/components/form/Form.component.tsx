@@ -7,8 +7,8 @@ import { FormBody } from './Form.styles';
 import addIcon from '../../assets/plus.svg'
 import jsonIcon from '../../assets/json.png'
 import htmlIcon from '../../assets/html.png'
-import FormTitle from './title/FormTitle.comopnent';
-import FromSegment from '../form-segment/FormSegment.component'
+import FormTitle from './title/FormTitle.component';
+import FromSegment from './formSegment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
 
 type Props = {
@@ -21,7 +21,7 @@ function generateId(): number {
 
 const formInitialValues: FormData = {
 	segments: [],
-	title: 'Untitled Form',
+	title: 'Untitled form',
 };
 
 const Form = ({mode}: Props) => {

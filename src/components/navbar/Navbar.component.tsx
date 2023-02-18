@@ -1,12 +1,12 @@
-import { StyledNavbar } from './Navbar.styles';
+import { Nav } from './Navbar.styles';
 import { RenderMode } from '../../types/FormData.type';
 import {
 	BrandNameDiv,
 	LargeText,
 	LinksDiv,
 	SmallText,
-	StyledLink,
-	NavContainer1366,
+	NavButton,
+	NavContainer,
 } from './Navbar.styles';
 type Props = {
 	brand: { smallText: string; largeText: string };
@@ -16,25 +16,32 @@ type Props = {
 
 const Navbar = ({ brand, navLinks, changeMode }: Props) => {
 	return (
-		<StyledNavbar>
-			<NavContainer1366>
+		<Nav>
+			<NavContainer>
 				<BrandNameDiv>
 					<SmallText> {brand.smallText} </SmallText>
 					<LargeText> {brand.largeText} </LargeText>
 				</BrandNameDiv>
 				<LinksDiv>
 					{navLinks.map((link) => (
-						<StyledLink onClick={
-							(e) => {
-								link.toLowerCase() === 'creator' ? 
-								changeMode(RenderMode.edit) :
-								changeMode(RenderMode.view)
+						<NavButton
+							onClick={(e) => {
+								link.toLowerCase() === 'creator'
+									? changeMode(RenderMode.edit)
+									: changeMode(RenderMode.view);
+							}}
+							title={
+								link.toLowerCase() === 'creator'
+									? 'Go to edit mode'
+									: 'Go to view mode'
 							}
-						}> {link} </StyledLink>
+						>			
+							{link}
+						</NavButton>
 					))}
 				</LinksDiv>
-			</NavContainer1366>
-		</StyledNavbar>
+			</NavContainer>
+		</Nav>
 	);
 };
 

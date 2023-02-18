@@ -1,5 +1,5 @@
-import { RenderMode } from '../../types/FormData.type';
-import { FormSegmentData, SegmentType } from '../../types/FormSegmentData.type';
+import { RenderMode } from '../../../types/FormData.type';
+import { FormSegmentData, SegmentType } from '../../../types/FormSegmentData.type';
 import { SegmentDiv } from './FormSegment.styles';
 import SegmentBody from './body/SegmentBody.component';
 import SegmentHeading from './heading/SegmentHeading.component';

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { RenderMode } from '../../../types/FormData.type';
-import { SegmentType } from '../../../types/FormSegmentData.type';
+import { RenderMode } from '../../../../types/FormData.type';
+import { SegmentType } from '../../../../types/FormSegmentData.type';
 import { EditableQuestion, HeadingDiv, Question, QuestionCondition, SelectQuestionType } from './SegmentHeading.styles';
 type Props = {
     question: string,

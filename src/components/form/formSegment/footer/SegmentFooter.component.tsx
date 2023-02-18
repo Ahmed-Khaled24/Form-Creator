@@ -1,5 +1,5 @@
 import { OptionalBtn, RequiredBtn, SegmentFooterDiv, DeleteSegmentBtn } from './SegmentFooter.styles';
-import deleteIcon from '../../../assets/delete.svg'
+import deleteIcon from '../../../../assets/delete.svg'
 
 type Props = {
     parentSegmentId: number,

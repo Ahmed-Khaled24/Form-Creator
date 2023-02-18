@@ -1,5 +1,5 @@
-import { SelectData } from "../../../../../types/SelectableElementData";
-import { RenderMode } from '../../../../../types/FormData.type';
+import { SelectData } from "../../../../../../types/SelectableElementData";
+import { RenderMode } from '../../../../../../types/FormData.type';
 import { SelectDiv, Checkbox } from './select.styles';
 import { DeleteBtn, InputText, Paragraph } from '../../SegmentBody.styles';
 import { Fragment } from "react";

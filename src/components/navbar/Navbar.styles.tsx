@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const LinksDiv = styled.div`
     display: flex;
     gap: 50px;
@@ -22,7 +23,7 @@ export const LargeText = styled.p`
     font-weight: 700;
 `;
 
-export const StyledLink = styled.button`
+export const NavButton = styled.button`
     text-decoration: none;
     color: inherit;
     border: none;
@@ -30,16 +31,20 @@ export const StyledLink = styled.button`
     font-family: inherit;
     background-color: transparent;
     cursor: pointer;
+    opacity: 0.7;
+    &:hover{
+        opacity: 1;
+    }
 `;
 
-export const NavContainer1366 = styled.div`
+export const NavContainer = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;
 `;
 
-export const StyledNavbar = styled.div`
+export const Nav = styled.div`
     background-color: #313644;
     display: flex;
     width: 100%;

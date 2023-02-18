@@ -1,5 +1,5 @@
-import { ChoiceData} from '../../../../../types/SelectableElementData';
-import { RenderMode } from '../../../../../types/FormData.type';
+import { ChoiceData} from '../../../../../../types/SelectableElementData';
+import { RenderMode } from '../../../../../../types/FormData.type';
 import { ChoiceDiv, RadioInput} from './Choice.styles';
 import { DeleteBtn, InputText, Paragraph } from '../../SegmentBody.styles';
 import { Fragment } from 'react';

@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Select from './select/select.component';
-import { SelectData } from '../../../../types/SelectableElementData';
-import { RenderMode } from '../../../../types/FormData.type';
+import { SelectData } from '../../../../../types/SelectableElementData';
+import { RenderMode } from '../../../../../types/FormData.type';
 import { AddNewBtn } from '../SegmentBody.styles';
 
 type Props = {

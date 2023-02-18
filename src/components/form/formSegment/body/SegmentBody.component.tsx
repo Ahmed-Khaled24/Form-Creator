@@ -1,5 +1,5 @@
-import { FormSegmentData, SegmentType } from '../../../types/FormSegmentData.type';
-import { RenderMode } from '../../../types/FormData.type';
+import { FormSegmentData, SegmentType } from '../../../../types/FormSegmentData.type';
+import { RenderMode } from '../../../../types/FormData.type';
 import { ParagraphAnswerBody, ShortAnswerBody } from './SegmentBody.styles';
 import MultipleChoiceBody from './multipleChoice/multipleChoice.component';
 import MultiSelectBody from './multipleSelect/multipleSelect.component';
