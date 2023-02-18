@@ -18,10 +18,10 @@ const SegmentFooter = ({required, parentSegmentId, deleteSegment, setRequired, u
                 <RequiredBtn onClick={() =>{
                     unsetRequired(parentSegmentId)
                     }
-                }> required </RequiredBtn> :
+                } title='change to optional'> required </RequiredBtn> :
                 <OptionalBtn onClick={() => {
                     setRequired(parentSegmentId)}
-                }> optional </OptionalBtn>
+                } title='change to required'> optional </OptionalBtn>
             }
             <DeleteSegmentBtn onClick={()=>deleteSegment(parentSegmentId)}>
                 <img src={deleteIcon} alt="delete-icon" title='Delete question'/>
