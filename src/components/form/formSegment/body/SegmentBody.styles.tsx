@@ -45,6 +45,8 @@ export const Paragraph = styled.p` // for choice and select
     font-size: ${fontSize}px;
     color: #e9ecef;
     flex: 1;
+    border-bottom: 1px solid #e9ecef;
+    padding: 5px 10px;
 `
 
 export const DeleteBtn = styled.button` // for choice and select
@@ -70,13 +72,13 @@ export const AddNewBtn = styled.button`
     border: none;
     opacity: 0.7;
     color: #e9ecef;
-    gap: 5px;
+    gap: 10px;
     width: fit-content;
-    font-size: 18px;
+    font-size: 22px;
     &:hover {
         opacity: 1;
     }
     span{
-        font-size: 20px;
+        font-size: 24px;
     }
 `

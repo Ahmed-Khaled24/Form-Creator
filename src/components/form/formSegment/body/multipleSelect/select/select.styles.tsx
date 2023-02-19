@@ -8,6 +8,7 @@ export const SelectDiv = styled.div`
 `
 
 export const Checkbox = styled.input`
+    accent-color: #82A7A6;
     width: 20px;
     height: 20px;
 `

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-const radioColor = 'black'
 
 export const ChoiceDiv = styled.div`
     display: flex;
@@ -10,7 +9,7 @@ export const ChoiceDiv = styled.div`
 
 
 export const RadioInput = styled.input`
-    accent-color: ${radioColor};
+    accent-color: #82A7A6;
     width: 25px;
     height: 25px;
 `

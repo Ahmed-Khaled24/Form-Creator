@@ -31,5 +31,5 @@ export const Question = styled.p`
 export const QuestionCondition = styled.p`
     color: #e9ecef;
     opacity: 0.7;
-    font-size: 16px;
+    font-size: 14px;
 `
