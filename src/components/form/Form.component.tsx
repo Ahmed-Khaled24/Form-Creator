@@ -3,7 +3,7 @@ import { FormData, RenderMode } from '../../types/FormData.type';
 import { SegmentType, FormSegmentData } from '../../types/FormSegmentData.type';
 import fileDownload from 'js-file-download';
 import { ChoiceData, SelectData } from '../../types/SelectableElementData';
-import { FormBody } from './Form.styles';
+import { EmptyFromPlaceHolder, FormBody } from './Form.styles';
 import FormTitle from './title/FormTitle.component';
 import FromSegment from './formSegment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
@@ -272,13 +272,10 @@ const Form = ({mode}: Props) => {
 
 	return (
 		<FormBody>
-			<FormTitle
-				setTitle={changeFormTitle}
-				title={formData.title}
-				mode={mode}
-			/>
+			<FormTitle setTitle={changeFormTitle} title={formData.title} mode={mode} />
 			{formData.segments.map((segment) => (
-				<FromSegment key={segment.id}
+				<FromSegment
+					key={segment.id}
 					mode={mode}
 					formSegmentData={segment}
 					changeQuestionText={changeQuestionText}
@@ -295,12 +292,19 @@ const Form = ({mode}: Props) => {
 					unsetRequired={unsetRequired}
 				/>
 			))}
-			<FormButtons 
-				mode={mode}
-				buttons = {formButtons}
-				popupShow={popupShow}
-			/>
-			<SavePopup 
+			{formData.segments.length === 0 ? 
+				<EmptyFromPlaceHolder>
+					<p>
+						{mode === RenderMode.edit
+							? 'Empty form, use the plus button to add questions to the form.'
+							: 'Empty form, go to creator mode to add questions or load a form using the buttons.'
+						}
+					</p>
+				</EmptyFromPlaceHolder> :
+				''
+			}
+			<FormButtons mode={mode} buttons={formButtons} popupShow={popupShow} />
+			<SavePopup
 				show={showPopup}
 				saveAsHTML={saveFromAsHTML}
 				saveAsJson={saveFromAsJSON}
