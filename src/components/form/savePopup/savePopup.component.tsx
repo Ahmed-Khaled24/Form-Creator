@@ -21,7 +21,7 @@ const SavePopup = ({show, saveAsJson, saveAsHTML, popupShow} : Props) => {
         saveAsJson();
     }
     function handleCancelBtnClicked(e: React.MouseEvent<HTMLButtonElement>) {
-        saveAsHTML();
+        popupShow(false);
     }
     
     return (
