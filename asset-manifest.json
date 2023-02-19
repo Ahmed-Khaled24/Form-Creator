@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/the-ultimate-form-creator/static/css/main.daecf80c.css",
-    "main.js": "/the-ultimate-form-creator/static/js/main.a52ce9cf.js",
+    "main.js": "/the-ultimate-form-creator/static/js/main.a2a4e620.js",
     "static/js/787.7a65547c.chunk.js": "/the-ultimate-form-creator/static/js/787.7a65547c.chunk.js",
     "static/media/delete.svg": "/the-ultimate-form-creator/static/media/delete.b97faa57c4cae21499059dea686f01e3.svg",
     "index.html": "/the-ultimate-form-creator/index.html",
     "main.daecf80c.css.map": "/the-ultimate-form-creator/static/css/main.daecf80c.css.map",
-    "main.a52ce9cf.js.map": "/the-ultimate-form-creator/static/js/main.a52ce9cf.js.map",
+    "main.a2a4e620.js.map": "/the-ultimate-form-creator/static/js/main.a2a4e620.js.map",
     "787.7a65547c.chunk.js.map": "/the-ultimate-form-creator/static/js/787.7a65547c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.daecf80c.css",
-    "static/js/main.a52ce9cf.js"
+    "static/js/main.a2a4e620.js"
   ]
 }
