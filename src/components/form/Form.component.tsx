@@ -57,8 +57,8 @@ const Form = ({mode}: Props) => {
 		fileDownload(document.documentElement.innerHTML, `${filename}.html`);
 	}
 	function loadJSONForm() {
-		const filename = formData.title;
-		fileDownload(JSON.stringify(formData), `${filename}.json`);
+		const fileInput = document.getElementById('fileInput');
+		fileInput?.click();
 	}
 	function deleteSegment(segmentId: number){
 		setFormData({
@@ -69,6 +69,21 @@ const Form = ({mode}: Props) => {
 	function popupShow(show: boolean){	
 		setShowPopup(show)
 	}
+
+	// Handle upload file
+	const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+	fileInput.addEventListener('change', (e) => {
+		const files = fileInput.files as FileList; 
+		const uploadedFile = files[0];
+		const reader = new FileReader()
+		reader.onload = (evt: ProgressEvent<FileReader>) => {
+			const text = evt.target?.result;
+			const loadedFormData = JSON.parse(text as string) as FormData;
+			setFormData(loadedFormData);
+		};
+		reader.readAsText(uploadedFile);
+	});
+
 	
 	// Segment related
 	function changeQuestionText(
