@@ -24,16 +24,18 @@ const Select = ({
 	answer,
 }: Props) => {
 	const { id, data } = selectData;
+
 	function handleCheckboxChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const elementData = e.target.value;
 		let newAnswer = answer.split(' & ');
 		if (e.target.checked) {
 			newAnswer.push(elementData);
 		} else {
-			newAnswer.filter((ans) => ans !== elementData);
+			newAnswer = newAnswer.filter((ans) => ans !== elementData);
 		}
 		changeSegmentAnswer(parentSegmentId, newAnswer.join(' & '));
 	}
+	
 	function handleChangeSelectText(e: React.ChangeEvent<HTMLInputElement>) {
 		const newElementData = e.target.value;
 		updateSelect(parentSegmentId, id, newElementData);
