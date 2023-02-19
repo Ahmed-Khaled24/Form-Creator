@@ -7,15 +7,14 @@ type Props = {
     mode: RenderMode,
     buttons: {
         addNewSegment: FormButtonData,
-        saveAsJSON: FormButtonData,
+        export: FormButtonData
         loadFormAsJSON: FormButtonData,
-        saveAsHTML: FormButtonData
     },
-
+    popupShow: (show: boolean) => void
 }
 
-const FormButtons = ({mode, buttons} : Props) => {
-    const {addNewSegment, saveAsHTML, saveAsJSON, loadFormAsJSON} = buttons
+const FormButtons = ({mode, buttons, popupShow} : Props) => {
+    const {addNewSegment, export: exportBtn, loadFormAsJSON} = buttons
     if(mode === RenderMode.edit){
         return (
             <FormButtonsDiv>
@@ -25,22 +24,16 @@ const FormButtons = ({mode, buttons} : Props) => {
                     onClickHandler={addNewSegment.onClickHandler}
                     alt={addNewSegment.alt}
                 />
-                <FormButton 
-                    icon={saveAsJSON.icon}
-                    title={saveAsJSON.title}
-                    onClickHandler={saveAsJSON.onClickHandler}
-                    alt={saveAsJSON.alt}
-                />
-                <FormButton 
-                    icon={saveAsHTML.icon}
-                    title={saveAsHTML.title}
-                    onClickHandler={saveAsHTML.onClickHandler}
-                    alt={saveAsHTML.alt}
-                />
             </FormButtonsDiv>
         )
     } else {
         return <FormButtonsDiv>
+            <FormButton 
+                    icon={exportBtn.icon}
+                    title={exportBtn.title}
+                    onClickHandler={exportBtn.onClickHandler}
+                    alt={exportBtn.alt}
+                />
             <FormButton 
                     icon={loadFormAsJSON.icon}
                     title={loadFormAsJSON.title}

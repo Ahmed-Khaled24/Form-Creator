@@ -9,7 +9,9 @@ type Props = {
 const FormButton = ({ icon, title, onClickHandler, alt }: Props) => {
 	return (
 		<FormBtn onClick={onClickHandler} title={title}>
-			<img src={icon} alt={alt} />
+			<span className="material-symbols-rounded">
+				{icon}
+			</span>
 		</FormBtn>
 	);
 };

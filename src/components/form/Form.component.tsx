@@ -4,12 +4,10 @@ import { SegmentType, FormSegmentData } from '../../types/FormSegmentData.type';
 import fileDownload from 'js-file-download';
 import { ChoiceData, SelectData } from '../../types/SelectableElementData';
 import { FormBody } from './Form.styles';
-import addIcon from '../../assets/plus.svg'
-import jsonIcon from '../../assets/json.png'
-import htmlIcon from '../../assets/html.png'
 import FormTitle from './title/FormTitle.component';
 import FromSegment from './formSegment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
+import SavePopup from './savePopup/savePopup.component';
 
 type Props = {
 	mode: RenderMode,
@@ -26,6 +24,7 @@ const formInitialValues: FormData = {
 
 const Form = ({mode}: Props) => {
 	const [formData, setFormData] = useState<FormData>(formInitialValues);
+	const [showPopup, setShowPopup] = useState<boolean>(false);
 
 	// Form related
 	function changeFormTitle(title: string) {
@@ -66,6 +65,9 @@ const Form = ({mode}: Props) => {
 			...formData,
 			segments: formData.segments.filter(segment => segment.id !== segmentId)
 		})
+	}
+	function popupShow(show: boolean){	
+		setShowPopup(show)
 	}
 	
 	// Segment related
@@ -249,27 +251,21 @@ const Form = ({mode}: Props) => {
 
 	const formButtons = {
 		addNewSegment: {
-			icon: addIcon,
-			title: 'Add New Question',
+			icon: 'add',
+			title: 'Add new question',
 			alt: 'add new question',
 			onClickHandler: addNewSegment
 		},
-		saveAsJSON: {
-			icon: jsonIcon,
-			title: 'Export As Json',
-			alt: 'export as json',
-			onClickHandler: saveFromAsJSON
-		},
-		saveAsHTML: {
-			icon: htmlIcon,
-			title: 'Export As HTML',
-			alt: 'export as html',
-			onClickHandler: saveFromAsHTML,
+		export: {
+			icon: 'save',
+			title: 'Export form',
+			alt: 'export form',
+			onClickHandler: () => popupShow(true),
 		},
 		loadFormAsJSON: {
-			icon: jsonIcon,
+			icon: 'file_open',
 			title: 'Load JSON Form',
-			alt: 'load json form',
+			alt: 'Open form',
 			onClickHandler: loadJSONForm,
 		}
 	}
@@ -302,6 +298,13 @@ const Form = ({mode}: Props) => {
 			<FormButtons 
 				mode={mode}
 				buttons = {formButtons}
+				popupShow={popupShow}
+			/>
+			<SavePopup 
+				show={showPopup}
+				saveAsHTML={saveFromAsHTML}
+				saveAsJson={saveFromAsJSON}
+				popupShow={popupShow}
 			/>
 		</FormBody>
 	);
