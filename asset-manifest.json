@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/the-ultimate-form-creator/static/css/main.c21ce92c.css",
+    "main.css": "/the-ultimate-form-creator/static/css/main.4c103c29.css",
     "main.js": "/the-ultimate-form-creator/static/js/main.5338500a.js",
     "static/js/787.7a65547c.chunk.js": "/the-ultimate-form-creator/static/js/787.7a65547c.chunk.js",
     "static/media/delete.svg": "/the-ultimate-form-creator/static/media/delete.b97faa57c4cae21499059dea686f01e3.svg",
     "index.html": "/the-ultimate-form-creator/index.html",
-    "main.c21ce92c.css.map": "/the-ultimate-form-creator/static/css/main.c21ce92c.css.map",
+    "static/media/background.svg": "/the-ultimate-form-creator/static/media/background.830085d8e054b5dd3b9c.svg",
+    "main.4c103c29.css.map": "/the-ultimate-form-creator/static/css/main.4c103c29.css.map",
     "main.5338500a.js.map": "/the-ultimate-form-creator/static/js/main.5338500a.js.map",
     "787.7a65547c.chunk.js.map": "/the-ultimate-form-creator/static/js/787.7a65547c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c21ce92c.css",
+    "static/css/main.4c103c29.css",
     "static/js/main.5338500a.js"
   ]
 }
