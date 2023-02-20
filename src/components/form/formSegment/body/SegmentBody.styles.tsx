@@ -6,7 +6,7 @@ export const ShortAnswerBody = styled.input`
     width: 100%;
     padding: 5px 10px;
     border: none;
-    border-bottom: 2px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef82;
     color: #e9ecef;
     background-color: transparent;
     font-size: ${fontSize}px;
@@ -23,8 +23,9 @@ export const ParagraphAnswerBody = styled.textarea`
     font-size: ${fontSize}px;
     border: none;
     resize: vertical;
-    border: 2px solid #e9ecef;
+    border: 1px solid #e9ecef82;
     color: #e9ecef;
+    border-radius: 5px;
     background-color: transparent;
     &:focus-visible {
         outline: none;
@@ -38,19 +39,19 @@ export const InputText = styled.input` // for choice and select
     background-color: transparent;
     color: #e9ecef;
     border: none;
-    border-bottom: 2px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef82;
 `
 
 export const Paragraph = styled.p` // for choice and select
     font-size: ${fontSize}px;
     color: #e9ecef;
     flex: 1;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef82;
     padding: 5px 10px;
 `
 
 export const DeleteBtn = styled.button` // for choice and select
-    color: white;
+    color: #e9ecef;
     font-size: ${fontSize}px;
     font-weight: bolder;
     font-size: 24px;

@@ -12,10 +12,12 @@ export const EditableQuestion = styled.input`
     font-family: inherit;
     font-size: 24px;
     padding: 5px 10px;
+    border-radius: 5px;
     flex: 1;
 `
 
 export const SelectQuestionType = styled.select`
+    border-radius: 5px;
     padding: 5px 10px;
     width: 30%;
     font-size: 18px;
@@ -29,7 +31,5 @@ export const Question = styled.p`
 `
 
 export const QuestionCondition = styled.p`
-    color: #e9ecef;
-    opacity: 0.7;
     font-size: 14px;
 `

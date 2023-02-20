@@ -4,6 +4,7 @@ export const FormBtn = styled.button`
     padding: 15px;
     background-color: #82A7A6;
     border-radius: 50%;
+    border: none !important;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -46,25 +46,25 @@ const SegmentHeading = ({
 							value={SegmentType.shortAnswer}
 							selected={questionType === SegmentType.shortAnswer}
 						>
-							short answer
+							Short answer
 						</option>
 						<option
 							value={SegmentType.paragraph}
 							selected={questionType === SegmentType.paragraph}
 						>
-							paragraph
+							Paragraph
 						</option>
 						<option
 							value={SegmentType.multipleChoice}
 							selected={questionType === SegmentType.multipleChoice}
 						>
-							multiple choice
+							Multiple Choice
 						</option>
 						<option
 							value={SegmentType.multiSelect}
 							selected={questionType === SegmentType.multiSelect}
 						>
-							multi select
+							Multi Select
 						</option>
 					</SelectQuestionType>
 				</Fragment>
@@ -72,7 +72,7 @@ const SegmentHeading = ({
 				<Fragment>
 					<Question> {question} </Question>
 					<QuestionCondition style={{ color: required ? '#CD0404' : '#FFD93D' }}>
-						{required ? 'required' : 'optional'}
+						{required ? 'Required' : 'Optional'}
 					</QuestionCondition>
 				</Fragment>
 			)}

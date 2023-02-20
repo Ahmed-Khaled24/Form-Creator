@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { FormData, RenderMode } from '../../types/FormData.type';
 import { SegmentType, FormSegmentData } from '../../types/FormSegmentData.type';
 import fileDownload from 'js-file-download';
@@ -286,46 +286,47 @@ const Form = ({mode}: Props) => {
 	}
 
 	return (
-		<FormBody>
-			<FormTitle setTitle={changeFormTitle} title={formData.title} mode={mode} />
-			{formData.segments.map((segment) => (
-				<FromSegment
-					key={segment.id}
-					mode={mode}
-					formSegmentData={segment}
-					changeQuestionText={changeQuestionText}
-					changeSegmentType={changeSegmentType}
-					changeSegmentAnswer={changeSegmentAnswer}
-					addNewChoice={addNewChoice}
-					deleteChoice={deleteChoice}
-					updateChoice={updateChoice}
-					addNewSelect={addNewSelect}
-					deleteSelect={deleteSelect}
-					updateSelect={updateSelect}
-					deleteSegment={deleteSegment}
-					setRequired={setRequired}
-					unsetRequired={unsetRequired}
+		<Fragment>
+			<FormBody>
+				<FormTitle setTitle={changeFormTitle} title={formData.title} mode={mode} />
+				{formData.segments.map((segment) => (
+					<FromSegment
+						key={segment.id}
+						mode={mode}
+						formSegmentData={segment}
+						changeQuestionText={changeQuestionText}
+						changeSegmentType={changeSegmentType}
+						changeSegmentAnswer={changeSegmentAnswer}
+						addNewChoice={addNewChoice}
+						deleteChoice={deleteChoice}
+						updateChoice={updateChoice}
+						addNewSelect={addNewSelect}
+						deleteSelect={deleteSelect}
+						updateSelect={updateSelect}
+						deleteSegment={deleteSegment}
+						setRequired={setRequired}
+						unsetRequired={unsetRequired}
+					/>
+				))}
+				{formData.segments.length === 0 && 
+					<EmptyFromPlaceHolder>
+						<p>
+							{mode === RenderMode.edit
+								? 'Empty form, use the plus button to add questions to the form.'
+								: 'Empty form, go to creator mode to add questions or load a form using the buttons.'
+							}
+						</p>
+					</EmptyFromPlaceHolder> 
+				}
+				<SavePopup
+					show={showPopup}
+					saveAsHTML={saveFromAsHTML}
+					saveAsJson={saveFromAsJSON}
+					popupShow={popupShow}
 				/>
-			))}
-			{formData.segments.length === 0 ? 
-				<EmptyFromPlaceHolder>
-					<p>
-						{mode === RenderMode.edit
-							? 'Empty form, use the plus button to add questions to the form.'
-							: 'Empty form, go to creator mode to add questions or load a form using the buttons.'
-						}
-					</p>
-				</EmptyFromPlaceHolder> :
-				''
-			}
+			</FormBody>
 			<FormButtons mode={mode} buttons={formButtons} popupShow={popupShow} />
-			<SavePopup
-				show={showPopup}
-				saveAsHTML={saveFromAsHTML}
-				saveAsJson={saveFromAsJSON}
-				popupShow={popupShow}
-			/>
-		</FormBody>
+		</Fragment>
 	);
 };
 

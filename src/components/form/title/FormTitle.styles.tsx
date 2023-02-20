@@ -30,7 +30,7 @@ const fontSize = 32;
     border: none;
     border-bottom: 2px solid white;
     background-color: transparent;
-    color: white;
+    color: #e9ecef;
     font-size: ${fontSize}px;
     letter-spacing: -1px;
     @media(max-width:950px){
