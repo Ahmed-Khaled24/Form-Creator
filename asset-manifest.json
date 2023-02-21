@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/Form-Creator/static/css/main.99ef31af.css",
-    "main.js": "/Form-Creator/static/js/main.5c7c6271.js",
+    "main.css": "/Form-Creator/static/css/main.85680431.css",
+    "main.js": "/Form-Creator/static/js/main.e9ee0425.js",
     "static/js/787.7a65547c.chunk.js": "/Form-Creator/static/js/787.7a65547c.chunk.js",
-    "static/media/delete.svg": "/Form-Creator/static/media/delete.b97faa57c4cae21499059dea686f01e3.svg",
     "index.html": "/Form-Creator/index.html",
     "static/media/background.svg": "/Form-Creator/static/media/background.830085d8e054b5dd3b9c.svg",
-    "main.99ef31af.css.map": "/Form-Creator/static/css/main.99ef31af.css.map",
-    "main.5c7c6271.js.map": "/Form-Creator/static/js/main.5c7c6271.js.map",
+    "main.85680431.css.map": "/Form-Creator/static/css/main.85680431.css.map",
+    "main.e9ee0425.js.map": "/Form-Creator/static/js/main.e9ee0425.js.map",
     "787.7a65547c.chunk.js.map": "/Form-Creator/static/js/787.7a65547c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99ef31af.css",
-    "static/js/main.5c7c6271.js"
+    "static/css/main.85680431.css",
+    "static/js/main.e9ee0425.js"
   ]
 }
