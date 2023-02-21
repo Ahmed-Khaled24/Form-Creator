@@ -11,7 +11,7 @@ type Props = {
     mode: RenderMode,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
     updateSelect: (segmentId: number, selectId: number, data: string) => void,
-    deleteSelect: (segmentId: number, selectId: number) => void,
+    deleteSelect: (segmentId: number, selectId: number, type: string) => void,
 }
 
 const Select = ({
@@ -52,7 +52,7 @@ const Select = ({
 			{mode === RenderMode.edit ? (
 				<Fragment>
 					<InputText type='text' onChange={handleChangeSelectText} value={data}/>
-					<DeleteBtn onClick={(e) => deleteSelect(parentSegmentId, id)} title="Delete element"> ✕ </DeleteBtn>
+					<DeleteBtn onClick={(e) => deleteSelect(parentSegmentId, id, 'select')} title="Delete element"> ✕ </DeleteBtn>
 				</Fragment>
 			) : (
 				<Paragraph> {data} </Paragraph>

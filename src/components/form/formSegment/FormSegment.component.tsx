@@ -11,14 +11,13 @@ type Props = {
     changeSegmentType: (segmentId: number, type: SegmentType) => void,
     changeQuestionText: (segmentId: number, type: string) => void,
 	changeSegmentAnswer: (segmentId: number, answer: string) => void,
-	deleteChoice: (segmentId: number, choiceId: number) => void,
 	updateChoice: (segmentId: number, choiceId: number, data: string) => void,
 	updateSelect: (segmentId: number, selectId: number, data: string) => void,
-	deleteSelect: (segmentId: number, selectId: number) => void,
 	deleteSegment: (segmentId: number) => void,
 	setRequired: (segmentId: number) => void,
 	unsetRequired: (segmentId: number) => void,
 	addNewSelectableElement: (segmentId: number, type: string) => void,
+	deleteSelectableElement: (segmentId: number, elementId: number, type: string) => void,
 }
 
 const FormSegment = ({
@@ -27,14 +26,13 @@ const FormSegment = ({
 	changeSegmentType, 
 	changeQuestionText,
 	changeSegmentAnswer,
-	deleteChoice,
 	updateChoice,
 	updateSelect,
-	deleteSelect,
 	deleteSegment,
 	setRequired,
 	unsetRequired,
-	addNewSelectableElement}: Props) => {
+	addNewSelectableElement,
+	deleteSelectableElement}: Props) => {
     const { question, id, required, type} = formSegmentData;
     return (
 		<SegmentDiv className={mode === RenderMode.view ? 'no-footer' : ''}>
@@ -51,11 +49,10 @@ const FormSegment = ({
 				formSegmentData={formSegmentData}
 				mode={mode}
 				changeSegmentAnswer={changeSegmentAnswer}
-				deleteChoice={deleteChoice}
 				updateChoice={updateChoice}
 				updateSelect={updateSelect}
-				deleteSelect={deleteSelect}
 				addNewSelectableElement={addNewSelectableElement}
+				deleteSelectableElement={deleteSelectableElement}
 			/>
 			{mode === RenderMode.edit ? (
 				<SegmentFooter

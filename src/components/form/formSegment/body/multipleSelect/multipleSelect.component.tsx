@@ -10,7 +10,7 @@ type Props = {
 	parentSegmentId: number;
 	mode: RenderMode;
 	updateSelect: (segmentId: number, selectId: number, data: string) => void;
-	deleteSelect: (segmentId: number, selectId: number) => void;
+	deleteSelect: (segmentId: number, selectId: number, type: string) => void;
 	addNewSelect: (segmentId: number, type: string) => void;
 	changeSegmentAnswer: (segmentId: number, answer: string) => void;
 };

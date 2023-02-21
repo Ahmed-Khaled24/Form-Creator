@@ -8,7 +8,7 @@ type Props = {
     choices: ChoiceData[] | undefined,
     parentSegmentId: number,
     updateChoice: (segmentId: number, choiceId: number, data: string) => void,
-    deleteChoice: (segmentId: number, choiceId: number) => void,
+    deleteChoice: (segmentId: number, choiceId: number, type: string) => void,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
     addNewChoice: (segmentId: number, type: string ) => void, 
 }

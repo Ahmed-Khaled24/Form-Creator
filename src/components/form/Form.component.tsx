@@ -160,6 +160,29 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
+	function deleteSelectableElement(segmentId: number, elementId: number, type: string){
+		const updatedSegments = [...formData.segments];
+		const targetSegmentIndex = updatedSegments.findIndex(
+			(segment) => segment.id === segmentId
+		);
+
+		if(type === 'choice'){
+			updatedSegments[targetSegmentIndex].choices = 
+			updatedSegments[targetSegmentIndex].choices?.filter(
+				(choice) => choice.id !== elementId
+			);
+		} else if( type === 'select') {
+			updatedSegments[targetSegmentIndex].selects = 
+			updatedSegments[targetSegmentIndex].selects?.filter(
+				(select) => select.id !== elementId
+			);
+		}
+		
+		setFormData({
+			...formData,
+			segments: updatedSegments,
+		});
+	}
 	function changeSegmentAnswer(
 		segmentId: number,
 		answer: string
@@ -173,24 +196,6 @@ const Form = ({mode}: Props) => {
 			...formData,
 			segments: updatedSegments,
 		});
-	}
-	function deleteChoice(
-		segmentId: number,
-		choiceId: number
-	) {	
-		const updatedSegments = [...formData.segments];
-		const targetSegmentIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		if (updatedSegments[targetSegmentIndex].choices) {
-			updatedSegments[targetSegmentIndex].choices = updatedSegments[
-				targetSegmentIndex
-			].choices?.filter((choice) => choice.id !== choiceId);
-			setFormData({
-				...formData,
-				segments: updatedSegments,
-			});
-		}
 	}
 	function updateChoice(
 		segmentId: number,
@@ -215,21 +220,6 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
-	function deleteSelect(segmentId: number, selectId: number) {	
-		const updatedSegments = [...formData.segments];
-		const targetSegmentIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		if (updatedSegments[targetSegmentIndex].selects) {
-			updatedSegments[targetSegmentIndex].selects = updatedSegments[
-				targetSegmentIndex
-			].selects?.filter((select) => select.id !== selectId);
-			setFormData({
-				...formData,
-				segments: updatedSegments,
-			});
-		}
-	}
 	function updateSelect(
 		segmentId: number,
 		selectId: number,
@@ -253,7 +243,6 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
-
 	const formButtons = {
 		addNewSegment: {
 			icon: 'add',
@@ -287,14 +276,13 @@ const Form = ({mode}: Props) => {
 						changeQuestionText={changeQuestionText}
 						changeSegmentType={changeSegmentType}
 						changeSegmentAnswer={changeSegmentAnswer}
-						deleteChoice={deleteChoice}
 						updateChoice={updateChoice}
-						deleteSelect={deleteSelect}
 						updateSelect={updateSelect}
 						deleteSegment={deleteSegment}
 						setRequired={setRequired}
 						unsetRequired={unsetRequired}
 						addNewSelectableElement={addNewSelectableElement}
+						deleteSelectableElement={deleteSelectableElement}
 					/>
 				))}
 				{formData.segments.length === 0 && 

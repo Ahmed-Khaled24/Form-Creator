@@ -8,22 +8,20 @@ type Props = {
 	formSegmentData: FormSegmentData;
 	mode: RenderMode;
 	changeSegmentAnswer: (segmentId: number, answer: string) => void;
-	deleteChoice: (segmentId: number, choiceId: number) => void;
 	updateChoice: (segmentId: number, choiceId: number, data: string) => void;
 	updateSelect: (segmentId: number, selectId: number, data: string) => void;
-	deleteSelect: (segmentId: number, selectId: number) => void;
 	addNewSelectableElement: (segmentId: number, type: string) => void,
+	deleteSelectableElement: (segmentId: number, elementId: number, type: string) => void,
 };
 
 const SegmentBody = ({
 	formSegmentData,
 	mode,
 	changeSegmentAnswer,
-	deleteChoice,
 	updateChoice,
 	updateSelect,
-	deleteSelect,
 	addNewSelectableElement,
+	deleteSelectableElement,
 }: Props) => {
 	const { id, choices, selects, answer } = formSegmentData;
 
@@ -60,7 +58,7 @@ const SegmentBody = ({
 					choices={choices}
 					parentSegmentId={id}
 					updateChoice={updateChoice}
-					deleteChoice={deleteChoice}
+					deleteChoice={deleteSelectableElement}
 					addNewChoice={addNewSelectableElement}
 					changeSegmentAnswer={changeSegmentAnswer}
 				/>
@@ -73,7 +71,7 @@ const SegmentBody = ({
 					selects={selects}
 					parentSegmentId={id}
 					updateSelect={updateSelect}
-					deleteSelect={deleteSelect}
+					deleteSelect={deleteSelectableElement}
 					addNewSelect={addNewSelectableElement}
 					changeSegmentAnswer={changeSegmentAnswer}
 					answer={answer}
