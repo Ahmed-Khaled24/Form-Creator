@@ -11,7 +11,7 @@ type Props = {
 	mode: RenderMode;
 	updateSelect: (segmentId: number, selectId: number, data: string) => void;
 	deleteSelect: (segmentId: number, selectId: number) => void;
-	addNewSelect: (segmentId: number) => void;
+	addNewSelect: (segmentId: number, type: string) => void;
 	changeSegmentAnswer: (segmentId: number, answer: string) => void;
 };
 
@@ -40,7 +40,7 @@ const MultiSelectBody = ({
 			))}
 
 			{	mode === RenderMode.edit ?
-				<AddNewBtn onClick={() => addNewSelect(parentSegmentId)}>
+				<AddNewBtn onClick={() => addNewSelect(parentSegmentId, 'select')}>
 					<span className="material-symbols-rounded">
 						add_box
 					</span>

@@ -36,8 +36,6 @@ const Form = ({mode}: Props) => {
 	function addNewSegment() {
 		const defaultSegment: FormSegmentData = {
 			type: SegmentType.shortAnswer,
-			choices: [],
-			selects: [],
 			id: generateId(),
 			question: '',
 			required: false,
@@ -138,6 +136,30 @@ const Form = ({mode}: Props) => {
 	}
 
 	// Segment body related
+	function addNewSelectableElement(segmentId: number, type: string) {
+		const updatedSegments = [...formData.segments];
+		const targetIndex = updatedSegments.findIndex((segment) => segment.id === segmentId);
+		const defaultElement = {
+			id: generateId(),
+			data: '',
+			selected: false,
+		};
+
+		if (type === 'choice') {
+			updatedSegments[targetIndex].choices
+				? updatedSegments[targetIndex].choices?.push(defaultElement)
+				: (updatedSegments[targetIndex].choices = [defaultElement]);
+		} else if (type === 'select') {
+			updatedSegments[targetIndex].selects
+				? updatedSegments[targetIndex].selects?.push(defaultElement)
+				: (updatedSegments[targetIndex].selects = [defaultElement]);
+		}
+
+		setFormData({
+			...formData,
+			segments: updatedSegments,
+		});
+	}
 	function changeSegmentAnswer(
 		segmentId: number,
 		answer: string
@@ -147,22 +169,6 @@ const Form = ({mode}: Props) => {
 			(segment) => segment.id === segmentId
 		);
 		updatedSegments[targetIndex].answer = answer;
-		setFormData({
-			...formData,
-			segments: updatedSegments,
-		});
-	}
-	function addNewChoice(segmentId: number) {
-		const updatedSegments = [...formData.segments];
-		const targetIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		const defaultChoice: ChoiceData = {
-			id: generateId(),
-			data: '',
-			selected: false,
-		};
-		updatedSegments[targetIndex].choices?.push(defaultChoice);
 		setFormData({
 			...formData,
 			segments: updatedSegments,
@@ -204,22 +210,6 @@ const Form = ({mode}: Props) => {
 		let choices = updatedSegments[targetSegmentIndex].choices as ChoiceData[]
 		choices[targetChoiceIndex].data = data;
 
-		setFormData({
-			...formData,
-			segments: updatedSegments,
-		});
-	}
-	function addNewSelect(segmentId: number) {
-		const updatedSegments = [...formData.segments];
-		const targetIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		const defaultSelect: SelectData = {
-			id: generateId(),
-			data: '',
-			selected: false,
-		};
-		updatedSegments[targetIndex].selects?.push(defaultSelect);
 		setFormData({
 			...formData,
 			segments: updatedSegments,
@@ -297,15 +287,14 @@ const Form = ({mode}: Props) => {
 						changeQuestionText={changeQuestionText}
 						changeSegmentType={changeSegmentType}
 						changeSegmentAnswer={changeSegmentAnswer}
-						addNewChoice={addNewChoice}
 						deleteChoice={deleteChoice}
 						updateChoice={updateChoice}
-						addNewSelect={addNewSelect}
 						deleteSelect={deleteSelect}
 						updateSelect={updateSelect}
 						deleteSegment={deleteSegment}
 						setRequired={setRequired}
 						unsetRequired={unsetRequired}
+						addNewSelectableElement={addNewSelectableElement}
 					/>
 				))}
 				{formData.segments.length === 0 && 

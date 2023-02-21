@@ -10,7 +10,7 @@ type Props = {
     updateChoice: (segmentId: number, choiceId: number, data: string) => void,
     deleteChoice: (segmentId: number, choiceId: number) => void,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
-    addNewChoice: (segmentId: number ) => void, 
+    addNewChoice: (segmentId: number, type: string ) => void, 
 }
 
 const MultipleChoiceBody = ({
@@ -35,7 +35,7 @@ const MultipleChoiceBody = ({
 				/>
 			))}
 			{ mode === RenderMode.edit ?
-				<AddNewBtn onClick={() => addNewChoice(parentSegmentId)}> 
+				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}> 
 					<span className="material-symbols-rounded">
 						add_circle
 					</span>				
