@@ -12,11 +12,10 @@ type Props = {
     changeQuestionText: (segmentId: number, type: string) => void,
 	changeSegmentAnswer: (segmentId: number, answer: string) => void,
 	deleteSegment: (segmentId: number) => void,
-	setRequired: (segmentId: number) => void,
-	unsetRequired: (segmentId: number) => void,
 	addNewSelectableElement: (segmentId: number, type: string) => void,
 	deleteSelectableElement: (segmentId: number, elementId: number, type: string) => void,
-	updateSelectableElement: (segmentId: number, elementId: number, data: string, type: string) => void
+	updateSelectableElement: (segmentId: number, elementId: number, data: string, type: string) => void,
+	toggleRequired: (segmentId: number) => void,
 }
 
 const FormSegment = ({
@@ -26,11 +25,10 @@ const FormSegment = ({
 	changeQuestionText,
 	changeSegmentAnswer,
 	deleteSegment,
-	setRequired,
-	unsetRequired,
 	addNewSelectableElement,
 	deleteSelectableElement,
-	updateSelectableElement}: Props) => {
+	updateSelectableElement,
+	toggleRequired}: Props) => {
     const { question, id, required, type} = formSegmentData;
     return (
 		<SegmentDiv className={mode === RenderMode.view ? 'no-footer' : ''}>
@@ -51,20 +49,16 @@ const FormSegment = ({
 				deleteSelectableElement={deleteSelectableElement}
 				updateSelectableElement={updateSelectableElement}
 			/>
-			{mode === RenderMode.edit ? (
+			{mode === RenderMode.edit && (
 				<SegmentFooter
 					deleteSegment={deleteSegment}
-					setRequired={setRequired}
-					unsetRequired={unsetRequired}
+					toggleRequired={toggleRequired}
 					required={required}
 					parentSegmentId={id}
 				/>
-			) : (
-				''
 			)}
 		</SegmentDiv>
 	);
 }
-
 
 export default FormSegment;

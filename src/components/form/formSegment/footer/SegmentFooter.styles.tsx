@@ -23,17 +23,14 @@ export const RequiredBtn = styled(transparentBtn)`
 
 export const OptionalBtn = styled(RequiredBtn)`
     color: #FFD93D;
-    opacity: 0.8;
-    &:hover {
-        opacity: 1;
-    }
 `
 
 export const DeleteSegmentBtn = styled(transparentBtn)`
     opacity: 0.7;
-    img {
-        width: 24px;
-        height: 24px;
+    span {
+        color: #CD0404;
+        font-size: 28px;
+        display: flex;
     }
     &:hover {
         opacity: 1;

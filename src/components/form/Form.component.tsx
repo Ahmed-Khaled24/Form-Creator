@@ -112,23 +112,10 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
-	function setRequired(segmentId: number){
+	function toggleRequired(segmentId: number) {
 		const updatedSegments = [...formData.segments];
-		const targetIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		updatedSegments[targetIndex].required = true;
-		setFormData({
-			...formData,
-			segments: updatedSegments,
-		});
-	}
-	function unsetRequired(segmentId: number) {
-		const updatedSegments = [...formData.segments];
-		const targetIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-		updatedSegments[targetIndex].required = false;
+		const targetIndex = updatedSegments.findIndex((segment) => segment.id === segmentId);
+		updatedSegments[targetIndex].required = !updatedSegments[targetIndex].required;
 		setFormData({
 			...formData,
 			segments: updatedSegments,
@@ -223,6 +210,7 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
+
 	const formButtons = {
 		addNewSegment: {
 			icon: 'add',
@@ -257,8 +245,7 @@ const Form = ({mode}: Props) => {
 						changeSegmentType={changeSegmentType}
 						changeSegmentAnswer={changeSegmentAnswer}
 						deleteSegment={deleteSegment}
-						setRequired={setRequired}
-						unsetRequired={unsetRequired}
+						toggleRequired={toggleRequired}
 						addNewSelectableElement={addNewSelectableElement}
 						deleteSelectableElement={deleteSelectableElement}
 						updateSelectableElement={updateSelectableElement}
