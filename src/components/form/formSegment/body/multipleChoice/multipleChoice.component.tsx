@@ -7,7 +7,7 @@ type Props = {
     mode: RenderMode,
     choices: ChoiceData[] | undefined,
     parentSegmentId: number,
-    updateChoice: (segmentId: number, choiceId: number, data: string) => void,
+    updateChoice: (segmentId: number, choiceId: number, data: string, type: string) => void,
     deleteChoice: (segmentId: number, choiceId: number, type: string) => void,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
     addNewChoice: (segmentId: number, type: string ) => void, 
@@ -25,7 +25,8 @@ const MultipleChoiceBody = ({
 	return (
 		<Fragment>
 			{choices?.map((choice) => (
-				<Choice key={choice.id}
+				<Choice
+					key={choice.id}
 					mode={mode}
 					choiceData={choice}
 					parentSegmentId={parentSegmentId}
@@ -34,15 +35,12 @@ const MultipleChoiceBody = ({
 					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			))}
-			{ mode === RenderMode.edit ?
-				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}> 
-					<span className="material-symbols-rounded">
-						add_circle
-					</span>				
-					Add 
-				</AddNewBtn> :
-				''
-			}
+			{mode === RenderMode.edit && (
+				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}>
+					<span className='material-symbols-rounded'>add_circle</span>
+					Add
+				</AddNewBtn>
+			)}
 		</Fragment>
 	);
 };

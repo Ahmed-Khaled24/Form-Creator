@@ -183,6 +183,32 @@ const Form = ({mode}: Props) => {
 			segments: updatedSegments,
 		});
 	}
+	function updateSelectableElement(segmentId: number, elementId: number, data: string, type: string) {
+		const updatedSegments = [...formData.segments];
+		const targetSegmentIndex = updatedSegments.findIndex(
+			(segment) => segment.id === segmentId
+		);
+
+		let targetElementIndex = 0;
+		if (type === 'choice') {
+			targetElementIndex = updatedSegments[targetSegmentIndex].choices?.findIndex(
+				(choice) => choice.id === elementId
+			) as number;
+			let choices = updatedSegments[targetSegmentIndex].choices as ChoiceData[];
+			choices[targetElementIndex].data = data;
+		} else if (type === 'select') {
+			targetElementIndex = updatedSegments[targetSegmentIndex].selects?.findIndex(
+				(select) => select.id === elementId
+			) as number;
+			let selects = updatedSegments[targetSegmentIndex].selects as SelectData[];
+			selects[targetElementIndex].data = data;
+		}
+		
+		setFormData({
+			...formData,
+			segments: updatedSegments,
+		});
+	}
 	function changeSegmentAnswer(
 		segmentId: number,
 		answer: string
@@ -192,52 +218,6 @@ const Form = ({mode}: Props) => {
 			(segment) => segment.id === segmentId
 		);
 		updatedSegments[targetIndex].answer = answer;
-		setFormData({
-			...formData,
-			segments: updatedSegments,
-		});
-	}
-	function updateChoice(
-		segmentId: number,
-		choiceId: number,
-		data: string
-	) {
-		const updatedSegments = [...formData.segments];
-
-		const targetSegmentIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-
-		const targetChoiceIndex = updatedSegments[
-			targetSegmentIndex
-		].choices?.findIndex((choice) => choice.id === choiceId) as number;
-
-		let choices = updatedSegments[targetSegmentIndex].choices as ChoiceData[]
-		choices[targetChoiceIndex].data = data;
-
-		setFormData({
-			...formData,
-			segments: updatedSegments,
-		});
-	}
-	function updateSelect(
-		segmentId: number,
-		selectId: number,
-		data: string
-	) {
-		const updatedSegments = [...formData.segments];
-
-		const targetSegmentIndex = updatedSegments.findIndex(
-			(segment) => segment.id === segmentId
-		);
-
-		const targetSelectIndex = updatedSegments[
-			targetSegmentIndex
-		].selects?.findIndex((select) => select.id === selectId) as number;
-
-		let selects = updatedSegments[targetSegmentIndex].selects as SelectData[]
-		selects[targetSelectIndex].data = data;
-
 		setFormData({
 			...formData,
 			segments: updatedSegments,
@@ -276,13 +256,12 @@ const Form = ({mode}: Props) => {
 						changeQuestionText={changeQuestionText}
 						changeSegmentType={changeSegmentType}
 						changeSegmentAnswer={changeSegmentAnswer}
-						updateChoice={updateChoice}
-						updateSelect={updateSelect}
 						deleteSegment={deleteSegment}
 						setRequired={setRequired}
 						unsetRequired={unsetRequired}
 						addNewSelectableElement={addNewSelectableElement}
 						deleteSelectableElement={deleteSelectableElement}
+						updateSelectableElement={updateSelectableElement}
 					/>
 				))}
 				{formData.segments.length === 0 && 

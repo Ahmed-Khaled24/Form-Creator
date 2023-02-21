@@ -10,7 +10,7 @@ type Props = {
     answer: string,
     mode: RenderMode,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
-    updateSelect: (segmentId: number, selectId: number, data: string) => void,
+    updateSelect: (segmentId: number, selectId: number, data: string, type: string) => void,
     deleteSelect: (segmentId: number, selectId: number, type: string) => void,
 }
 
@@ -38,7 +38,7 @@ const Select = ({
 	
 	function handleChangeSelectText(e: React.ChangeEvent<HTMLInputElement>) {
 		const newElementData = e.target.value;
-		updateSelect(parentSegmentId, id, newElementData);
+		updateSelect(parentSegmentId, id, newElementData, 'select');
 	}
 
 	return (

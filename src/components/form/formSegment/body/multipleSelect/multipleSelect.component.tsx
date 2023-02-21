@@ -9,7 +9,7 @@ type Props = {
 	answer: string;
 	parentSegmentId: number;
 	mode: RenderMode;
-	updateSelect: (segmentId: number, selectId: number, data: string) => void;
+	updateSelect: (segmentId: number, selectId: number, data: string, type: string) => void;
 	deleteSelect: (segmentId: number, selectId: number, type: string) => void;
 	addNewSelect: (segmentId: number, type: string) => void;
 	changeSegmentAnswer: (segmentId: number, answer: string) => void;
@@ -28,7 +28,8 @@ const MultiSelectBody = ({
 	return (
 		<Fragment>
 			{selects?.map((select) => (
-				<Select key={select.id}
+				<Select
+					key={select.id}
 					answer={answer}
 					parentSegmentId={parentSegmentId}
 					selectData={select}
@@ -39,15 +40,12 @@ const MultiSelectBody = ({
 				/>
 			))}
 
-			{	mode === RenderMode.edit ?
+			{mode === RenderMode.edit && (
 				<AddNewBtn onClick={() => addNewSelect(parentSegmentId, 'select')}>
-					<span className="material-symbols-rounded">
-						add_box
-					</span>
+					<span className='material-symbols-rounded'>add_box</span>
 					Add
-				</AddNewBtn> :
-				''
-			}
+				</AddNewBtn>
+			)}
 		</Fragment>
 	);
 };

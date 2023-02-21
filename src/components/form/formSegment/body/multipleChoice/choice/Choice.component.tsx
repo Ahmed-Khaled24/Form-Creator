@@ -8,7 +8,7 @@ type Props = {
     mode: RenderMode,
     choiceData: ChoiceData,
     parentSegmentId: number,
-    updateChoice: (segmentId: number, choiceId: number, data: string) => void,
+    updateChoice: (segmentId: number, choiceId: number, data: string, type: string) => void,
     deleteChoice: (segmentId: number, choiceId: number, type: string) => void,
     changeSegmentAnswer: (segmentId: number, answer: string) => void,
 }
@@ -23,7 +23,7 @@ const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, 
 
     function handleChangeChoiceText(e: React.ChangeEvent<HTMLInputElement>){
         const newText = e.target.value;
-        updateChoice(parentSegmentId, id, newText);
+        updateChoice(parentSegmentId, id, newText, 'choice');
     }
  
     return (
