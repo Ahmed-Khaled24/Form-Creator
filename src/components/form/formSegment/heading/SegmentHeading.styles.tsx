@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const HeadingDiv = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 10px;
+    @media (max-width: 550px){
+        flex-direction: column;
+        align-items: stretch;
+    }
 `
 
 export const EditableQuestion = styled.input`
@@ -21,7 +25,10 @@ export const SelectQuestionType = styled.select`
     padding: 5px 10px;
     width: 30%;
     font-size: 18px;
-    align-self: stretch;
+    @media (max-width: 550px){
+        width: 100%;
+    }
+
 `
 
 export const Question = styled.p`

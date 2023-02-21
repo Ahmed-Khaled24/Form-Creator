@@ -10,6 +10,9 @@ export const SegmentDiv = styled.div`
     flex-direction: column;
     gap: 20px;
     @media(max-width:950px){
-      width: 80%;
+      width: 100%;
+    }
+    :last-child{
+      margin-bottom: 50px;
     }
 `

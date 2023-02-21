@@ -20,4 +20,7 @@ export const EmptyFromPlaceHolder = styled.div`
         text-align: center;
         color: rgba(255, 255, 255, 0.2);
     }
+    @media (max-width: 550px){
+        font-size: 36px;
+    }
 `

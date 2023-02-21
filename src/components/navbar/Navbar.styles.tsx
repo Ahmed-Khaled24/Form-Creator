@@ -5,6 +5,9 @@ export const LinksDiv = styled.div`
     display: flex;
     gap: 50px;
     align-items: center;
+    @media (max-width: 550px){
+        display: none;
+    }
 `;
 
 export const BrandNameDiv = styled.div`
@@ -35,19 +38,40 @@ export const NavButton = styled.button`
     &:hover{
         opacity: 1;
     }
-`;
-
-export const NavContainer = styled.div`
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 50px;
+    @media (max-width: 550px){
+        font-size: 20px;
+    }
 `;
 
 export const Nav = styled.div`
     background-color: #313644;
     display: flex;
+    padding: 10px 50px;
     width: 100%;
     color: white;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 550px){
+        padding: 20px;
+    }  
 `;
+
+export const HamburgerBtn = styled.span`
+    font-size: 48px;
+    visibility: hidden;
+    @media (max-width: 550px){
+        visibility: visible;
+    }
+`
+
+export const VerticalNav = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    background-color: #313644;
+    :last-child {
+        padding-bottom: 30px;
+    } 
+    color: white;
+`

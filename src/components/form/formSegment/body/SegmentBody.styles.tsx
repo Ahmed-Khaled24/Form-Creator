@@ -40,6 +40,7 @@ export const InputText = styled.input` // for choice and select
     color: #e9ecef;
     border: none;
     border-bottom: 1px solid #e9ecef82;
+    min-width: 100px;
 `
 
 export const Paragraph = styled.p` // for choice and select

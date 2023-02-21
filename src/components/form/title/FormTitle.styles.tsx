@@ -21,6 +21,9 @@ const fontSize = 32;
     @media(max-width:950px){
       width: 80%;
     }
+    @media(max-width:550px){
+      width: 100%;
+    }
  `
 
  export const Title = styled.p`
@@ -35,5 +38,8 @@ const fontSize = 32;
     letter-spacing: -1px;
     @media(max-width:950px){
       width: 80%;
+    }
+    @media(max-width:550px){
+      width: 100%;
     }
  `
