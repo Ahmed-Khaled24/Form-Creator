@@ -11,7 +11,7 @@ function createQuestionHeader(question: string, required: boolean){
     return `
         <div class='question-header'>
             <h2 class='question-title'> ${question} </h2>
-            <span style="color: ${required?'red':'#3A98B9'}; font-size: 14px;">
+            <span style="color: ${required?'rgb(205, 4, 4)':'#3A98B9'}; font-size: 14px;">
                  ${required?'Required':'Optional'} 
             </span>
         </div>
