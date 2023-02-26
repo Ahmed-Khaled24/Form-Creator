@@ -8,7 +8,7 @@ import FormTitle from './title/FormTitle.component';
 import FromSegment from './formSegment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
 import SavePopup from './savePopup/savePopup.component';
-import createHTMLForm from '../../utils/createHTMLForm/createHTMLForm';
+import createHTMLForm from '../../utils/createHTMLForm';
 
 type Props = {
 	mode: RenderMode,
@@ -51,9 +51,9 @@ const Form = ({mode}: Props) => {
 		const filename = formData.title;
 		fileDownload(JSON.stringify(formData), `${filename}.json`);
 	}
-	function saveFromAsHTML() {
+	function saveFromAsHTML(targetLink: string) {
 		const filename = formData.title;
-		fileDownload(createHTMLForm(formData), `${filename}.html`);
+		fileDownload(createHTMLForm(formData, targetLink), `${filename}.html`);
 	}
 	function loadJSONForm() {
 		const fileInput = document.getElementById('fileInput');
