@@ -20,8 +20,8 @@ The app has two modes, navigate between them using the links in the navbar:
 4. Choosing HTML option, the app asks you about the target server link to send POST requests to (in this tutorial I am using express server running on http://localhost:8000/)
 ![](Readme/html-save-ll.png)
 5. After save the html file open it to fill the form then press submit
-![](Readme/answer-form.jpeg)
-The data reach the server is in this form
+![](Readme/answer-form.jpeg)    
+The data reach the server is in this form    
 ![](Readme/data-reach-server.png)
 
 ### Components structure
