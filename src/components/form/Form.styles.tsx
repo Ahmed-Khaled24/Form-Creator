@@ -18,7 +18,7 @@ export const EmptyFromPlaceHolder = styled.div`
     width: 60%;
     p {
         text-align: center;
-        color: rgba(255, 255, 255, 0.2);
+        color: #3a97b971;
     }
     @media (max-width: 550px){
         font-size: 36px;
