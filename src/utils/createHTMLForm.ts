@@ -1,6 +1,7 @@
-import { FormData } from '../../types/FormData.type';
-import { FormSegmentData, SegmentType } from '../../types/FormSegmentData.type';
-import { ChoiceData, SelectData } from '../../types/SelectableElementData';
+import { FormData } from '../types/FormData.type';
+import { FormSegmentData, SegmentType } from '../types/FormSegmentData.type';
+import { ChoiceData, SelectData } from '../types/SelectableElementData';
+
 function createFormTitle(title: string): string{
     return `
         <h1> ${title} </h1>
@@ -10,7 +11,9 @@ function createQuestionHeader(question: string, required: boolean){
     return `
         <div class='question-header'>
             <h2 class='question-title'> ${question} </h2>
-            <span style="color: ${required?'red':'inherit'}; font-size: 14px;"> ${required?'Required':'Optional'} </span>
+            <span style="color: ${required?'red':'inherit'}; font-size: 14px;">
+                 ${required?'Required':'Optional'} 
+            </span>
         </div>
     `.trim();
 }
@@ -32,9 +35,11 @@ function createSelectElement(select: SelectData, question: string, required: boo
     `.trim()
 }
 function createSelectableElementsQuestionBody(elements: ChoiceData[] | undefined, question: string, type: string, required:boolean): string{
-    let HTMLs = elements?.map(element => {
-       return type === 'choice' ? createChoiceElement(element, question, required) : createSelectElement(element, question, required);
-    });
+    let HTMLs = elements?.map((element) => {
+		return type === 'choice'
+			? createChoiceElement(element, question, required)
+			: createSelectElement(element, question, required);
+	});
     return`
         <div class='selectable-elements-container'>
             ${HTMLs?.join('\n')}
@@ -100,7 +105,7 @@ function createFormBody(segments: FormSegmentData[]){
     return formQuestions.join('\n');
 }
 
-export default function createHTMLForm({segments, title}: FormData): string {
+export default function createHTMLForm({segments, title}: FormData, targetLink: string): string {
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -210,7 +215,7 @@ export default function createHTMLForm({segments, title}: FormData): string {
             </style>
         </head>
         <body>
-            <form action='http://localhost:8000' method='POST'>  
+            <form action='${targetLink}' method='POST'>  
                 ${createFormTitle(title)} 
                 ${createFormBody(segments)}
                 <button type='submit' title='submit form'> Submit </button>
