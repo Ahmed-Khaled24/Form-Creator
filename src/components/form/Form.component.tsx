@@ -46,6 +46,7 @@ const Form = ({mode}: Props) => {
 			...formData,
 			segments: [...formData.segments, defaultSegment],
 		});
+		setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 100);
 	}
 	function saveFromAsJSON() {
 		const filename = formData.title;
