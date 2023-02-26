@@ -37,7 +37,6 @@ const MultipleChoiceBody = ({
 			))}
 			{mode === RenderMode.edit && (
 				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}>
-					<span className='material-symbols-rounded'>add_circle</span>
 					Add
 				</AddNewBtn>
 			)}

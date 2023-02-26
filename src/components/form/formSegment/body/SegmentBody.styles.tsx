@@ -71,12 +71,15 @@ export const AddNewBtn = styled.button`
     display: flex;
     align-items: center;
     background-color: transparent;
-    border: none;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 3px 12px;
+    width: 100%;
     opacity: 0.7;
     color: #e9ecef;
     gap: 10px;
     width: fit-content;
-    font-size: 22px;
+    font-size: 18px;
     &:hover {
         opacity: 1;
     }

@@ -42,7 +42,6 @@ const MultiSelectBody = ({
 
 			{mode === RenderMode.edit && (
 				<AddNewBtn onClick={() => addNewSelect(parentSegmentId, 'select')}>
-					<span className='material-symbols-rounded'>add_box</span>
 					Add
 				</AddNewBtn>
 			)}
