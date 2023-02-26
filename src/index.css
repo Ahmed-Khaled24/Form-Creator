@@ -5,9 +5,10 @@
 }
 
 body {
-	background-color: #EEEEEE;
+	background-image: url('assets/background.svg');
 	font-family: 'Roboto', sans-serif !important;
 	color: #495057;
+	position: relative;
 }
 p {
 	margin: 0 !important;
@@ -36,6 +37,18 @@ select {
 
 .no-footer {
 	padding-bottom: 30px !important;
+}
+
+.copyright{
+	text-decoration: none;
+	color: #3A98B9;
+	position: absolute;
+	bottom: 10px;
+	left: auto;
+	right: auto;
+}
+.copyright:hover{
+	color: #3A98B9;
 }
 
 /* Scroll bar */

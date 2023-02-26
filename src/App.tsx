@@ -19,6 +19,7 @@ function App() {
 				changeMode = {changeRenderMode}
 			/>
 			<Form mode={mode} />
+			<a href='https://www.linkedin.com/in/ahmedkhaled24/' className='copyright' target='_blank' rel="noreferrer"> &copy; Ahmed Khaled</a>
 		</Fragment>
 	);
 }
