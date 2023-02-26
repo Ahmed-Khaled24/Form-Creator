@@ -6,9 +6,8 @@ export const ShortAnswerBody = styled.input`
     width: 100%;
     padding: 5px 10px;
     border: none;
-    border-bottom: 1px solid #e9ecef82;
-    color: #e9ecef;
-    background-color: transparent;
+    border-bottom: 1px solid #3A98B9;
+    border-radius: 5px;
     font-size: ${fontSize}px;
      &:focus-visible {
         outline: none;
@@ -17,16 +16,13 @@ export const ShortAnswerBody = styled.input`
 
 export const ParagraphAnswerBody = styled.textarea`
     width: 100%;
-    border: none;
     padding: 5px 10px;
     font-family: inherit;
     font-size: ${fontSize}px;
-    border: none;
     resize: vertical;
-    border: 1px solid #e9ecef82;
-    color: #e9ecef;
+    border: none;
+    border-bottom: 1px solid #3A98B9;
     border-radius: 5px;
-    background-color: transparent;
     &:focus-visible {
         outline: none;
     }
@@ -36,32 +32,29 @@ export const InputText = styled.input` // for choice and select
     flex: 1;
     font-size: 18px;
     padding: 5px 10px;
-    background-color: transparent;
-    color: #e9ecef;
+    color: #495057;
     border: none;
-    border-bottom: 1px solid #e9ecef82;
+    border-radius: 5px;
+    border-bottom: 1px solid #3A98B9;
     min-width: 100px;
 `
 
 export const Paragraph = styled.p` // for choice and select
     font-size: ${fontSize}px;
-    color: #e9ecef;
+    color: #495057;
     flex: 1;
-    border-bottom: 1px solid #e9ecef82;
+    border-bottom: 1px solid #3A98B9;
     padding: 5px 10px;
 `
 
 export const DeleteBtn = styled.button` // for choice and select
-    color: #e9ecef;
+    color: #495057;
     font-size: ${fontSize}px;
     font-weight: bolder;
     font-size: 24px;
-    opacity: 0.5;
+    opacity: 0.7;
     background-color: transparent;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     &:hover {
         opacity: 1;
     }
@@ -69,16 +62,17 @@ export const DeleteBtn = styled.button` // for choice and select
 
 export const AddNewBtn = styled.button`
     display: flex;
-    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
     background-color: transparent;
-    border: 1px solid #e9ecef;
+    border: 2px solid #868e96;
     border-radius: 5px;
-    padding: 3px 12px;
-    width: 100%;
-    opacity: 0.7;
-    color: #e9ecef;
-    gap: 10px;
+    padding: 3px 30px;
     width: fit-content;
+    opacity: 0.7;
+    color: #868e96;
+    gap: 10px;
     font-size: 18px;
     &:hover {
         opacity: 1;

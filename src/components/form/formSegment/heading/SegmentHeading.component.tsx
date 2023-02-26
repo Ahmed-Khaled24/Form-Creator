@@ -71,7 +71,7 @@ const SegmentHeading = ({
 			) : (
 				<Fragment>
 					<Question> {question} </Question>
-					<QuestionCondition style={{ color: required ? '#CD0404' : '#FFD93D' }}>
+					<QuestionCondition style={{ color: required ? '#CD0404' : '#3A98B9' }}>
 						{required ? 'Required' : 'Optional'}
 					</QuestionCondition>
 				</Fragment>

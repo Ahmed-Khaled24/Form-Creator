@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormBtn = styled.button`
     padding: 15px;
-    background-color: #82A7A6;
+    background-color: #3A98B9;
     border-radius: 50%;
     border: none !important;
     display: flex;
@@ -14,7 +14,7 @@ export const FormBtn = styled.button`
     transition-property: background-color;
     transition-duration: 0.5s;
     &:hover {
-        background-color: #3d5756
+        background-color: #2b7089
     }
     span {
         display: flex;
@@ -36,9 +36,9 @@ export const PopupBtn = styled.button`
     transition-timing-function: linear;
     transition-property: background-color;
     transition-duration: 0.5s;
-    background-color: #82A7A6;
+    background-color: #3A98B9;
     &:hover {
-        background-color: #3d5756
+        background-color: #2f7791
     }
     border: none;
     border-radius: 5px;

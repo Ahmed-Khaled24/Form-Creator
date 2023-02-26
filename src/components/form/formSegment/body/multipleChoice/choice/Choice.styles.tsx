@@ -9,7 +9,7 @@ export const ChoiceDiv = styled.div`
 
 
 export const RadioInput = styled.input`
-    accent-color: #82A7A6;
+    accent-color: #3A98B9;
     width: 25px;
     height: 25px;
 `

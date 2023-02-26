@@ -42,7 +42,7 @@ const MultiSelectBody = ({
 
 			{mode === RenderMode.edit && (
 				<AddNewBtn onClick={() => addNewSelect(parentSegmentId, 'select')}>
-					Add
+					Add new element
 				</AddNewBtn>
 			)}
 		</Fragment>

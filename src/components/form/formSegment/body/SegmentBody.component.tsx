@@ -39,7 +39,10 @@ const SegmentBody = ({
 				<ShortAnswerBody
 					readOnly={mode === RenderMode.edit}
 					onChange={textAnswerChangeHandler}
-					style={{ cursor: mode === RenderMode.edit ? 'not-allowed' : '' }}
+					style={{
+						cursor: mode === RenderMode.edit ? 'not-allowed' : '',
+						backgroundColor: mode === RenderMode.edit ? 'transparent' : '',
+					}}
 					placeholder={
 						mode === RenderMode.edit ? 'Filled in view mode' : 'Type your answer'
 					}
@@ -50,7 +53,10 @@ const SegmentBody = ({
 			return (
 				<ParagraphAnswerBody
 					readOnly={mode === RenderMode.edit}
-					style={{ cursor: mode === RenderMode.edit ? 'not-allowed' : '' }}
+					style={{ 
+						cursor: mode === RenderMode.edit ? 'not-allowed' : '' ,
+						backgroundColor: mode === RenderMode.edit ? 'transparent' : ''
+					}}
 					onChange={textAnswerChangeHandler}
 					placeholder={
 						mode === RenderMode.edit ? 'Filled in view mode' : 'Type your answer'

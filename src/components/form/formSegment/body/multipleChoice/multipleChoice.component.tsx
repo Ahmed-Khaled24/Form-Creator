@@ -37,7 +37,7 @@ const MultipleChoiceBody = ({
 			))}
 			{mode === RenderMode.edit && (
 				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}>
-					Add
+					Add new element
 				</AddNewBtn>
 			)}
 		</Fragment>

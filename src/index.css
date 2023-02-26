@@ -5,9 +5,9 @@
 }
 
 body {
-	background-image: url("../public/background.svg");
+	background-color: #EEEEEE;
 	font-family: 'Roboto', sans-serif !important;
-	color: #343a40;
+	color: #495057;
 }
 p {
 	margin: 0 !important;
@@ -30,8 +30,8 @@ select:focus-visible {
 input,
 textarea,
 select {
-	background-color: #ced4dae5;
-	color: #343a40;
+	background-color: #f1f3f5;
+	color: #495057;
 }
 
 .no-footer {
@@ -40,18 +40,18 @@ select {
 
 /* Scroll bar */
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-	background: hsla(210, 12%, 10%, 1);
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #82a7a6;
+	background: #3A98B9;
 	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #3d5756;
+	background: #2f7b96;
 }

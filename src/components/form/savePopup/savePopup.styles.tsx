@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 
 
 export const ModalHeader = styled(Modal.Header)`
-    background-color: #313644;
+    background-color: #495057;
     color: white;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -11,12 +11,12 @@ export const ModalHeader = styled(Modal.Header)`
 `
 
 export const ModalBody = styled(Modal.Body)`
-    background-color: #313644;
+    background-color: #495057;
     color: white;
 `
 
 export const ModalFooter = styled(Modal.Footer)`
-    background-color: #313644;
+    background-color: #495057;
     color: white;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;

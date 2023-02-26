@@ -13,6 +13,8 @@ export const HeadingDiv = styled.div`
 
 export const EditableQuestion = styled.input`
     border: none;
+    border-bottom: 1px solid #3A98B9;
+    color: #495057;
     font-family: inherit;
     font-size: 24px;
     padding: 5px 10px;
@@ -21,6 +23,9 @@ export const EditableQuestion = styled.input`
 `
 
 export const SelectQuestionType = styled.select`
+    border: none;
+    border-bottom: 1px solid #3A98B9;
+    color: #495057;
     border-radius: 5px;
     padding: 5px 10px;
     width: 30%;
@@ -28,12 +33,11 @@ export const SelectQuestionType = styled.select`
     @media (max-width: 550px){
         width: 100%;
     }
-
 `
 
 export const Question = styled.p`
+    color: #495057;
     font-size: 32px;
-    color: #e9ecef;
     letter-spacing: -1px;
 `
 

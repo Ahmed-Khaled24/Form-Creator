@@ -34,7 +34,7 @@ export const NavButton = styled.button`
     font-family: inherit;
     background-color: transparent;
     cursor: pointer;
-    opacity: 0.7;
+    opacity: 0.8;
     &:hover{
         opacity: 1;
     }
@@ -44,7 +44,7 @@ export const NavButton = styled.button`
 `;
 
 export const Nav = styled.div`
-    background-color: #313644;
+    background-color: #3A98B9;
     display: flex;
     padding: 10px 50px;
     width: 100%;
@@ -69,7 +69,7 @@ export const VerticalNav = styled.div`
     flex-direction: column;
     gap: 30px;
     width: 100%;
-    background-color: #313644;
+    background-color: #3A98B9;
     :last-child {
         padding-bottom: 30px;
     } 

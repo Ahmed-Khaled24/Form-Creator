@@ -4,7 +4,7 @@ export const SegmentDiv = styled.div`
     width: 60%;
     max-width: 800px;
     border-radius: 5px;
-    background-color: #313644;
+    background-color: #E8D5C4;
     padding: 20px;
     display: flex;
     flex-direction: column;

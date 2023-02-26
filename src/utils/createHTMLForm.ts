@@ -11,7 +11,7 @@ function createQuestionHeader(question: string, required: boolean){
     return `
         <div class='question-header'>
             <h2 class='question-title'> ${question} </h2>
-            <span style="color: ${required?'red':'inherit'}; font-size: 14px;">
+            <span style="color: ${required?'red':'#3A98B9'}; font-size: 14px;">
                  ${required?'Required':'Optional'} 
             </span>
         </div>
@@ -141,7 +141,8 @@ export default function createHTMLForm({segments, title}: FormData, targetLink: 
                     margin: 50px auto;
                 }
                 input, textarea {
-                    border: 1px solid #3A98B9;
+                    border: none;
+                    border-bottom: 1px solid #3A98B9;
                     border-radius: 5px;
                     padding: 10px;
                     width: 100%;
@@ -180,12 +181,16 @@ export default function createHTMLForm({segments, title}: FormData, targetLink: 
                     display: flex;
                     gap: 20px;
                     font-size: 18px;
-                    border-bottom: 1px solid #3A98B9;
                     padding: 10px;
+                }
+                .selectable-element-container label{
+                    flex: 1;
+                    border-bottom: 1px solid #3A98B9;
+                    padding: 5px;
                 }
                 .selectable-element-container input{
                     width: fit-content;
-                    transform: scale(1.5);
+                    transform: scale(1.8);
                 }
                 button[type="submit"] {
                     padding: 12px 18px;
@@ -211,6 +216,19 @@ export default function createHTMLForm({segments, title}: FormData, targetLink: 
                     .form{
                         width: 90%;
                     }
+                }
+                ::-webkit-scrollbar {
+                    width: 5px;
+                }
+                ::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                ::-webkit-scrollbar-thumb {
+                    background: #3A98B9;
+                    border-radius: 5px;
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background: #2f7b96;
                 }
             </style>
         </head>

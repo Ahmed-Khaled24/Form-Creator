@@ -12,8 +12,9 @@ const transparentBtn = styled.button`
     background-color: transparent;
     cursor: pointer;
 `
+
 export const RequiredBtn = styled(transparentBtn)`
-    font-size: 16px; 
+    font-size: 14px; 
     color: #CD0404;
     opacity: 0.8;
     &:hover {
@@ -22,14 +23,14 @@ export const RequiredBtn = styled(transparentBtn)`
 `
 
 export const OptionalBtn = styled(RequiredBtn)`
-    color: #FFD93D;
+    color: #3A98B9;
 `
 
 export const DeleteSegmentBtn = styled(transparentBtn)`
     opacity: 0.7;
     span {
         color: #CD0404;
-        font-size: 28px;
+        font-size: 24px;
         display: flex;
     }
     &:hover {
