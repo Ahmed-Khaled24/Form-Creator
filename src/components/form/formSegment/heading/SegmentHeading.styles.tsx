@@ -43,4 +43,5 @@ export const Question = styled.p`
 
 export const QuestionCondition = styled.p`
     font-size: 14px;
+    color: ${({required}:{required: boolean}) => required ? '#CD0404' : '#3A98B9'};
 `

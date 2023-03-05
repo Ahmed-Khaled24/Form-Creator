@@ -1,6 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { RenderMode } from "../../../../types/FormData.type";
 
 const fontSize = 18;
+
+const EditModeStyles = css`
+    cursor: not-allowed;
+    background-color: transparent;
+`
 
 export const ShortAnswerBody = styled.input`
     width: 100%;
@@ -9,9 +15,11 @@ export const ShortAnswerBody = styled.input`
     border-bottom: 1px solid #3A98B9;
     border-radius: 5px;
     font-size: ${fontSize}px;
-     &:focus-visible {
-        outline: none;
-     }
+    ${({mode}:{mode: RenderMode}) => mode === RenderMode.edit && EditModeStyles};
+
+    &:focus-visible {
+    outline: none;
+    }
 `
 
 export const ParagraphAnswerBody = styled.textarea`
@@ -23,6 +31,7 @@ export const ParagraphAnswerBody = styled.textarea`
     border: none;
     border-bottom: 1px solid #3A98B9;
     border-radius: 5px;
+    ${({mode}:{mode: RenderMode}) => mode === RenderMode.edit && EditModeStyles};
     &:focus-visible {
         outline: none;
     }

@@ -16,7 +16,7 @@ const FormTitle = ({setTitle, title, mode}: Props) => {
 
     return (
         mode === RenderMode.edit ? 
-            <EditableTitle 
+            <EditableTitle
                 placeholder='Type form title' 
                 onChange={handleChangeTitle} 
                 value={title}

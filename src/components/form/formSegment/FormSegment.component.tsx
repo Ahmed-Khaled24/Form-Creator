@@ -31,7 +31,7 @@ const FormSegment = ({
 	toggleRequired}: Props) => {
     const { question, id, required, type} = formSegmentData;
     return (
-		<SegmentDiv className={mode === RenderMode.view ? 'no-footer' : ''}>
+		<SegmentDiv mode={mode}>
 			<SegmentHeading
 				question={question}
 				mode={mode}
