@@ -3,27 +3,24 @@ import { RenderMode } from '../../../../../../types/FormData.type';
 import { SelectDiv, Checkbox } from './select.styles';
 import { DeleteBtn, InputText, Paragraph } from '../../SegmentBody.styles';
 import { Fragment } from "react";
+import {useContext} from 'react';
+import { FormContext } from "../../../../../contexts/form.context";
 
 type Props = {
     parentSegmentId: number,
     selectData: SelectData,
     answer: string,
     mode: RenderMode,
-    changeSegmentAnswer: (segmentId: number, answer: string) => void,
-    updateSelect: (segmentId: number, selectId: number, data: string, type: string) => void,
-    deleteSelect: (segmentId: number, selectId: number, type: string) => void,
 }
 
 const Select = ({
 	parentSegmentId,
 	selectData,
 	mode,
-	updateSelect,
-	deleteSelect,
-	changeSegmentAnswer,
 	answer,
 }: Props) => {
 	const { id, data } = selectData;
+	const { changeSegmentAnswer, updateSelectableElement, deleteSelectableElement} = useContext(FormContext);
 
 	function handleCheckboxChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const elementData = e.target.value;
@@ -38,7 +35,7 @@ const Select = ({
 	
 	function handleChangeSelectText(e: React.ChangeEvent<HTMLInputElement>) {
 		const newElementData = e.target.value;
-		updateSelect(parentSegmentId, id, newElementData, 'select');
+		updateSelectableElement(parentSegmentId, id, newElementData, 'select');
 	}
 
 	return (
@@ -52,7 +49,7 @@ const Select = ({
 			{mode === RenderMode.edit ? (
 				<Fragment>
 					<InputText type='text' onChange={handleChangeSelectText} value={data}/>
-					<DeleteBtn onClick={(e) => deleteSelect(parentSegmentId, id, 'select')} title="Delete element"> ✕ </DeleteBtn>
+					<DeleteBtn onClick={(e) => deleteSelectableElement(parentSegmentId, id, 'select')} title="Delete element"> ✕ </DeleteBtn>
 				</Fragment>
 			) : (
 				<Paragraph> {data} </Paragraph>

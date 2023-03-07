@@ -1,13 +1,14 @@
+import { useContext } from 'react';
 import { OptionalBtn, RequiredBtn, SegmentFooterDiv, DeleteSegmentBtn } from './SegmentFooter.styles';
+import { FormContext } from '../../../contexts/form.context';
 
 type Props = {
     parentSegmentId: number,
     required: boolean,
-    deleteSegment: (segmentId: number) => void,
-    toggleRequired: (segmentId: number) => void
 }
 
-const SegmentFooter = ({ required, parentSegmentId, deleteSegment, toggleRequired }: Props) => {
+const SegmentFooter = ({ required, parentSegmentId}: Props) => {
+	const { deleteSegment, toggleRequired } = useContext(FormContext);
     let toggleRequiredButton: JSX.Element;
     if (required) {
 		toggleRequiredButton = (

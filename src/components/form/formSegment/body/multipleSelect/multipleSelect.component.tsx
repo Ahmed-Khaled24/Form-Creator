@@ -1,18 +1,15 @@
-import { Fragment } from 'react';
+import { Fragment , useContext} from 'react';
 import Select from './select/select.component';
 import { SelectData } from '../../../../../types/SelectableElementData';
 import { RenderMode } from '../../../../../types/FormData.type';
 import { AddNewBtn } from '../SegmentBody.styles';
+import { FormContext } from '../../../../contexts/form.context';
 
 type Props = {
 	selects: SelectData[] | undefined;
 	answer: string;
 	parentSegmentId: number;
 	mode: RenderMode;
-	updateSelect: (segmentId: number, selectId: number, data: string, type: string) => void;
-	deleteSelect: (segmentId: number, selectId: number, type: string) => void;
-	addNewSelect: (segmentId: number, type: string) => void;
-	changeSegmentAnswer: (segmentId: number, answer: string) => void;
 };
 
 const MultiSelectBody = ({
@@ -20,11 +17,8 @@ const MultiSelectBody = ({
 	selects,
 	answer,
 	parentSegmentId,
-	updateSelect,
-	deleteSelect,
-	addNewSelect,
-	changeSegmentAnswer,
 }: Props) => {
+	const { addNewSelectableElement } = useContext(FormContext);
 	return (
 		<Fragment>
 			{selects?.map((select) => (
@@ -34,14 +28,11 @@ const MultiSelectBody = ({
 					parentSegmentId={parentSegmentId}
 					selectData={select}
 					mode={mode}
-					updateSelect={updateSelect}
-					deleteSelect={deleteSelect}
-					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			))}
 
 			{mode === RenderMode.edit && (
-				<AddNewBtn onClick={() => addNewSelect(parentSegmentId, 'select')}>
+				<AddNewBtn onClick={() => addNewSelectableElement(parentSegmentId, 'select')}>
 					Add new element
 				</AddNewBtn>
 			)}

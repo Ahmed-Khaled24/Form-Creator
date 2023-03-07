@@ -3,30 +3,20 @@ import { RenderMode } from '../../../../types/FormData.type';
 import { ParagraphAnswerBody, ShortAnswerBody } from './SegmentBody.styles';
 import MultipleChoiceBody from './multipleChoice/multipleChoice.component';
 import MultiSelectBody from './multipleSelect/multipleSelect.component';
+import { useContext } from 'react';
+import { FormContext } from '../../../contexts/form.context';
 
 type Props = {
 	formSegmentData: FormSegmentData;
 	mode: RenderMode;
-	changeSegmentAnswer: (segmentId: number, answer: string) => void;
-	addNewSelectableElement: (segmentId: number, type: string) => void;
-	deleteSelectableElement: (segmentId: number, elementId: number, type: string) => void;
-	updateSelectableElement: (
-		segmentId: number,
-		elementId: number,
-		data: string,
-		type: string
-	) => void;
 };
 
 const SegmentBody = ({
 	formSegmentData,
 	mode,
-	changeSegmentAnswer,
-	addNewSelectableElement,
-	deleteSelectableElement,
-	updateSelectableElement,
 }: Props) => {
 	const { id, choices, selects, answer } = formSegmentData;
+	const { changeSegmentAnswer } = useContext(FormContext);
 
 	function textAnswerChangeHandler(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
 		const newAnswer = e.target.value;
@@ -64,10 +54,6 @@ const SegmentBody = ({
 					mode={mode}
 					choices={choices}
 					parentSegmentId={id}
-					updateChoice={updateSelectableElement}
-					deleteChoice={deleteSelectableElement}
-					addNewChoice={addNewSelectableElement}
-					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			);
 		}
@@ -77,10 +63,6 @@ const SegmentBody = ({
 					mode={mode}
 					selects={selects}
 					parentSegmentId={id}
-					updateSelect={updateSelectableElement}
-					deleteSelect={deleteSelectableElement}
-					addNewSelect={addNewSelectableElement}
-					changeSegmentAnswer={changeSegmentAnswer}
 					answer={answer}
 				/>
 			);

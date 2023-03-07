@@ -1,27 +1,18 @@
-import { Fragment } from "react"
-import { ChoiceData } from "../../../../../types/SelectableElementData"
+import { Fragment, useContext } from 'react';
+import { ChoiceData } from '../../../../../types/SelectableElementData';
 import { RenderMode } from '../../../../../types/FormData.type';
-import Choice from "./choice/Choice.component";
+import Choice from './choice/Choice.component';
 import { AddNewBtn } from '../SegmentBody.styles';
-type Props = {
-    mode: RenderMode,
-    choices: ChoiceData[] | undefined,
-    parentSegmentId: number,
-    updateChoice: (segmentId: number, choiceId: number, data: string, type: string) => void,
-    deleteChoice: (segmentId: number, choiceId: number, type: string) => void,
-    changeSegmentAnswer: (segmentId: number, answer: string) => void,
-    addNewChoice: (segmentId: number, type: string ) => void, 
-}
+import { FormContext } from '../../../../contexts/form.context';
 
-const MultipleChoiceBody = ({
-	mode,
-	choices,
-	parentSegmentId,
-	updateChoice,
-	deleteChoice,
-	changeSegmentAnswer,
-	addNewChoice,
-}: Props) => {
+type Props = {
+	mode: RenderMode;
+	choices: ChoiceData[] | undefined;
+	parentSegmentId: number;
+};
+
+const MultipleChoiceBody = ({ mode, choices, parentSegmentId }: Props) => {
+	const { addNewSelectableElement } = useContext(FormContext);
 	return (
 		<Fragment>
 			{choices?.map((choice) => (
@@ -30,13 +21,10 @@ const MultipleChoiceBody = ({
 					mode={mode}
 					choiceData={choice}
 					parentSegmentId={parentSegmentId}
-					updateChoice={updateChoice}
-					deleteChoice={deleteChoice}
-					changeSegmentAnswer={changeSegmentAnswer}
 				/>
 			))}
 			{mode === RenderMode.edit && (
-				<AddNewBtn onClick={() => addNewChoice(parentSegmentId, 'choice')}>
+				<AddNewBtn onClick={() => addNewSelectableElement(parentSegmentId, 'choice')}>
 					Add new element
 				</AddNewBtn>
 			)}

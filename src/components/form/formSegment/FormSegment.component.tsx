@@ -1,5 +1,5 @@
 import { RenderMode } from '../../../types/FormData.type';
-import { FormSegmentData, SegmentType } from '../../../types/FormSegmentData.type';
+import { FormSegmentData} from '../../../types/FormSegmentData.type';
 import { SegmentDiv } from './FormSegment.styles';
 import SegmentBody from './body/SegmentBody.component';
 import SegmentHeading from './heading/SegmentHeading.component';
@@ -8,27 +8,11 @@ import SegmentFooter from './footer/SegmentFooter.component';
 type Props = {
     mode: RenderMode,
     formSegmentData: FormSegmentData,
-    changeSegmentType: (segmentId: number, type: SegmentType) => void,
-    changeQuestionText: (segmentId: number, type: string) => void,
-	changeSegmentAnswer: (segmentId: number, answer: string) => void,
-	deleteSegment: (segmentId: number) => void,
-	addNewSelectableElement: (segmentId: number, type: string) => void,
-	deleteSelectableElement: (segmentId: number, elementId: number, type: string) => void,
-	updateSelectableElement: (segmentId: number, elementId: number, data: string, type: string) => void,
-	toggleRequired: (segmentId: number) => void,
 }
 
 const FormSegment = ({
 	mode, 
-	formSegmentData, 
-	changeSegmentType, 
-	changeQuestionText,
-	changeSegmentAnswer,
-	deleteSegment,
-	addNewSelectableElement,
-	deleteSelectableElement,
-	updateSelectableElement,
-	toggleRequired}: Props) => {
+	formSegmentData, }: Props) => {
     const { question, id, required, type} = formSegmentData;
     return (
 		<SegmentDiv mode={mode}>
@@ -38,21 +22,13 @@ const FormSegment = ({
 				required={required}
 				parentSegmentId={id}
 				questionType={type}
-				changeQuestionText={changeQuestionText}
-				changeSegmentType={changeSegmentType}
 			/>
 			<SegmentBody
 				formSegmentData={formSegmentData}
 				mode={mode}
-				changeSegmentAnswer={changeSegmentAnswer}
-				addNewSelectableElement={addNewSelectableElement}
-				deleteSelectableElement={deleteSelectableElement}
-				updateSelectableElement={updateSelectableElement}
 			/>
 			{mode === RenderMode.edit && (
 				<SegmentFooter
-					deleteSegment={deleteSegment}
-					toggleRequired={toggleRequired}
 					required={required}
 					parentSegmentId={id}
 				/>

@@ -7,6 +7,7 @@ import { createContext, useState } from "react";
 
 type ProviderValueType = {
     mode: RenderMode ,
+    formData: FormData,
     changeRenderMode: ((mode: RenderMode) => void) ,
     changeFormTitle: ((title: string) => void) ,
     addNewSegment: (() => void) ,
@@ -30,6 +31,7 @@ const formInitialValues: FormData = {
 
 const formContextInitialValues: ProviderValueType = {
     mode: RenderMode.edit,
+    formData: formInitialValues,
     changeRenderMode: () => {},
     changeFormTitle: () => {},
     addNewSegment: () => {},
@@ -243,6 +245,7 @@ export const FormProvider = ({children}: {children: JSX.Element}) => {
 		changeSegmentAnswer,
         changeRenderMode,
         mode,
+        formData,
 	};
 
     return (

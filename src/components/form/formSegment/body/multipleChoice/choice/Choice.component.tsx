@@ -2,19 +2,18 @@ import { ChoiceData} from '../../../../../../types/SelectableElementData';
 import { RenderMode } from '../../../../../../types/FormData.type';
 import { ChoiceDiv, RadioInput} from './Choice.styles';
 import { DeleteBtn, InputText, Paragraph } from '../../SegmentBody.styles';
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
+import { FormContext } from '../../../../../contexts/form.context';
 
 type Props = {
     mode: RenderMode,
     choiceData: ChoiceData,
     parentSegmentId: number,
-    updateChoice: (segmentId: number, choiceId: number, data: string, type: string) => void,
-    deleteChoice: (segmentId: number, choiceId: number, type: string) => void,
-    changeSegmentAnswer: (segmentId: number, answer: string) => void,
 }
 
-const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, changeSegmentAnswer}: Props) =>  {
+const Choice = ({mode, choiceData, parentSegmentId}: Props) =>  {
     const {id, data} = choiceData;
+	const { updateSelectableElement, deleteSelectableElement, changeSegmentAnswer } = useContext(FormContext);
 
     function handleChangeSegmentAnswer(e: React.ChangeEvent<HTMLInputElement>){
         const newAnswer = e.target.value;
@@ -23,7 +22,7 @@ const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, 
 
     function handleChangeChoiceText(e: React.ChangeEvent<HTMLInputElement>){
         const newText = e.target.value;
-        updateChoice(parentSegmentId, id, newText, 'choice');
+        updateSelectableElement(parentSegmentId, id, newText, 'choice');
     }
  
     return (
@@ -43,7 +42,7 @@ const Choice = ({mode, choiceData, parentSegmentId, updateChoice, deleteChoice, 
 						onChange={handleChangeChoiceText}
 						value={data}
 					/>
-					<DeleteBtn onClick={e => deleteChoice(parentSegmentId, id, 'choice')} title='Delete choice' > ✕ </DeleteBtn>
+					<DeleteBtn onClick={e => deleteSelectableElement(parentSegmentId, id, 'choice')} title='Delete choice' > ✕ </DeleteBtn>
 				</Fragment>
 				: 
 				<Paragraph>{data}</Paragraph>
