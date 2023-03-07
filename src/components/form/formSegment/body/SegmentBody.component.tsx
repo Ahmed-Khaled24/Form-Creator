@@ -8,15 +8,11 @@ import { FormContext } from '../../../contexts/form.context';
 
 type Props = {
 	formSegmentData: FormSegmentData;
-	mode: RenderMode;
 };
 
-const SegmentBody = ({
-	formSegmentData,
-	mode,
-}: Props) => {
+const SegmentBody = ({formSegmentData}: Props) => {
 	const { id, choices, selects, answer } = formSegmentData;
-	const { changeSegmentAnswer } = useContext(FormContext);
+	const { changeSegmentAnswer, mode} = useContext(FormContext);
 
 	function textAnswerChangeHandler(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
 		const newAnswer = e.target.value;

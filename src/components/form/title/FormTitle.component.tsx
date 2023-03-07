@@ -1,17 +1,15 @@
+import { useContext } from 'react';
 import { RenderMode } from '../../../types/FormData.type';
 import { EditableTitle, Title } from './FormTitle.styles';
+import { FormContext } from '../../contexts/form.context';
 
-type Props = {
-    setTitle: (title: string) => void,
-    title: string,
-    mode: RenderMode,
-}
-
-const FormTitle = ({setTitle, title, mode}: Props) => {
+const FormTitle = () => {
+    const { changeFormTitle, formData, mode } = useContext(FormContext);
+    const{title} = formData;
 
     function handleChangeTitle(e: React.ChangeEvent<HTMLInputElement>){
         const newTitle = e.target.value;
-        setTitle(newTitle);
+        changeFormTitle(newTitle);
     }
 
     return (

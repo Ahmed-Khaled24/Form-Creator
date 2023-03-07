@@ -1,5 +1,5 @@
 import { RenderMode } from '../../types/FormData.type';
-import { Fragment, useState } from 'react';
+import { useContext, useState } from 'react';
 import { VerticalNav } from './Navbar.styles';
 import {
 	BrandNameDiv,
@@ -10,13 +10,14 @@ import {
 	Nav, 
 	HamburgerBtn
 } from './Navbar.styles';
+import { FormContext } from '../contexts/form.context';
 type Props = {
 	brand: { smallText: string; largeText: string };
 	navLinks: string[];
-	changeMode: (mode: RenderMode) => void;
 };
 
-const Navbar = ({ brand, navLinks, changeMode }: Props) => {
+const Navbar = ({ brand, navLinks}: Props) => {
+	const { changeRenderMode } = useContext(FormContext);
 	const [mobileNavState, setMobileNavState] = useState<string>('closed')
 	function toggleMobileNav(){
 		if(mobileNavState === 'opened'){
@@ -30,8 +31,8 @@ const Navbar = ({ brand, navLinks, changeMode }: Props) => {
 		<NavButton
 			onClick={(e) => {
 				link.toLowerCase() === 'creator'
-					? changeMode(RenderMode.edit)
-					: changeMode(RenderMode.view);
+					? changeRenderMode(RenderMode.edit)
+					: changeRenderMode(RenderMode.view);
 			}}
 			title={
 				link.toLowerCase() === 'creator'
@@ -42,26 +43,20 @@ const Navbar = ({ brand, navLinks, changeMode }: Props) => {
 			{link}
 		</NavButton>
 	));
-	const brandName = (
-		<BrandNameDiv>
-			<SmallText> {brand.smallText} </SmallText>
-			<LargeText> {brand.largeText} </LargeText>
-		</BrandNameDiv>
-	)
 
 	return (
 		<VerticalNav>
 			<Nav>
-				{brandName}
-				<HamburgerBtn className="material-symbols-rounded" onClick={toggleMobileNav}>menu</HamburgerBtn>
+				<BrandNameDiv>
+					<SmallText> {brand.smallText} </SmallText>
+					<LargeText> {brand.largeText} </LargeText>
+				</BrandNameDiv>
+				<HamburgerBtn className='material-symbols-rounded' onClick={toggleMobileNav}>
+					menu
+				</HamburgerBtn>
 				<LinksDiv> {links} </LinksDiv>
 			</Nav>
-				{
-					mobileNavState === 'opened' &&
-					<VerticalNav>
-						{links}
-					</VerticalNav>
-				}
+			{mobileNavState === 'opened' && <VerticalNav>{links}</VerticalNav>}
 		</VerticalNav>
 	);
 };

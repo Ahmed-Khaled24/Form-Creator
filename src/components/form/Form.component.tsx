@@ -1,64 +1,20 @@
 import { Fragment, useState, useContext } from 'react';
-import { FormData, RenderMode } from '../../types/FormData.type';
-import { SegmentType, FormSegmentData } from '../../types/FormSegmentData.type';
-import fileDownload from 'js-file-download';
-import { ChoiceData, SelectData } from '../../types/SelectableElementData';
+import { RenderMode } from '../../types/FormData.type';
 import { EmptyFromPlaceHolder, FormBody } from './Form.styles';
 import FormTitle from './title/FormTitle.component';
 import FromSegment from './formSegment/FormSegment.component'
 import FormButtons from './formButtons/formButtons.component';
 import SavePopup from './savePopup/savePopup.component';
-import createHTMLForm from '../../utils/createHTMLForm';
 import { FormContext } from '../contexts/form.context';
 
-type Props = {
-	mode: RenderMode,
-}
-
-function generateId(): number {
-	return Math.trunc(Math.random() * 1e6);
-}
-
-const formInitialValues: FormData = {
-	segments: [],
-	title: 'Untitled form',
-};
-
-const Form = ({mode}: Props) => {
-	const {formData, changeFormTitle, addNewSegment} = useContext(FormContext);
+const Form = () => {
+	const {formData, mode, addNewSegment, loadJSONForm} = useContext(FormContext);
 	const [showPopup, setShowPopup] = useState<boolean>(false);
 
 	// Form related
-	function saveFromAsJSON() {
-		const filename = formData.title;
-		fileDownload(JSON.stringify(formData), `${filename}.json`);
-	}
-	function saveFromAsHTML(targetLink: string) {
-		const filename = formData.title;
-		fileDownload(createHTMLForm(formData, targetLink), `${filename}.html`);
-	}
-	function loadJSONForm() {
-		const fileInput = document.getElementById('fileInput');
-		fileInput?.click();
-	}
 	function popupShow(show: boolean){	
 		setShowPopup(show)
 	}
-
-	// Handle upload file
-	// const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-	// fileInput.addEventListener('change', (e) => {
-	// 	const files = fileInput.files as FileList; 
-	// 	const uploadedFile = files[0];
-	// 	const reader = new FileReader()
-	// 	reader.onload = (evt: ProgressEvent<FileReader>) => {
-	// 		const text = evt.target?.result;
-	// 		const loadedFormData = JSON.parse(text as string) as FormData;
-	// 		setFormData(loadedFormData);
-	// 	};
-	// 	reader.readAsText(uploadedFile);
-	// });
-
 
 	const formButtons = {
 		addNewSegment: {
@@ -84,11 +40,10 @@ const Form = ({mode}: Props) => {
 	return (
 		<Fragment>
 			<FormBody>
-				<FormTitle setTitle={changeFormTitle} title={formData.title} mode={mode} />
+				<FormTitle/>
 				{formData.segments.map((segment) => (
 					<FromSegment
 						key={segment.id}
-						mode={mode}
 						formSegmentData={segment}
 					/>
 				))}
@@ -104,8 +59,6 @@ const Form = ({mode}: Props) => {
 				}
 				<SavePopup
 					show={showPopup}
-					saveAsHTML={saveFromAsHTML}
-					saveAsJson={saveFromAsJSON}
 					popupShow={popupShow}
 				/>
 			</FormBody>

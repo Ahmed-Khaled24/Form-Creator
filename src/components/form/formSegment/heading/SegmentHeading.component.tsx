@@ -1,11 +1,10 @@
 import { Fragment, useContext} from 'react';
-import { RenderMode } from '../../../../types/FormData.type';
 import { SegmentType } from '../../../../types/FormSegmentData.type';
 import { EditableQuestion, HeadingDiv, Question, QuestionCondition, SelectQuestionType } from './SegmentHeading.styles';
 import { FormContext } from '../../../contexts/form.context';
+import { RenderMode } from '../../../../types/FormData.type';
 type Props = {
     question: string,
-    mode: RenderMode,
     required: boolean,
     parentSegmentId: number,
 	questionType: SegmentType,
@@ -13,12 +12,10 @@ type Props = {
 
 const SegmentHeading = ({
 	question,
-	mode,
 	required,
 	parentSegmentId,
-	questionType,
-}: Props) => {
-	const {changeQuestionText, changeSegmentType} = useContext(FormContext);
+	questionType }: Props) => {
+	const {changeQuestionText, changeSegmentType, mode} = useContext(FormContext);
 	
 	function handleChangeQuestionType(e: React.ChangeEvent<HTMLSelectElement>) {
 		const newType = Number(e.target.value);
@@ -44,7 +41,7 @@ const SegmentHeading = ({
 							value={SegmentType.shortAnswer}
 							selected={questionType === SegmentType.shortAnswer}
 						>
-							Short answer
+							Short Answer
 						</option>
 						<option
 							value={SegmentType.paragraph}

@@ -4,28 +4,26 @@ import { SegmentDiv } from './FormSegment.styles';
 import SegmentBody from './body/SegmentBody.component';
 import SegmentHeading from './heading/SegmentHeading.component';
 import SegmentFooter from './footer/SegmentFooter.component';
+import { FormContext } from '../../contexts/form.context';
+import { useContext } from 'react';
 
 type Props = {
-    mode: RenderMode,
     formSegmentData: FormSegmentData,
 }
 
-const FormSegment = ({
-	mode, 
-	formSegmentData, }: Props) => {
+const FormSegment = ({formSegmentData}: Props) => {
     const { question, id, required, type} = formSegmentData;
+	const {mode} = useContext(FormContext);
     return (
 		<SegmentDiv mode={mode}>
 			<SegmentHeading
 				question={question}
-				mode={mode}
 				required={required}
 				parentSegmentId={id}
 				questionType={type}
 			/>
 			<SegmentBody
 				formSegmentData={formSegmentData}
-				mode={mode}
 			/>
 			{mode === RenderMode.edit && (
 				<SegmentFooter

@@ -1,29 +1,29 @@
 import { Form, Modal } from "react-bootstrap"
 import { PopupBtn } from '../formButtons/formButton/button.styles';
 import { ModalHeader, ModalBody, ModalFooter } from './savePopup.styles';
-import { useState} from 'react';
+import { useState, useContext} from 'react';
+import { FormContext } from "../../contexts/form.context";
 
 
 type Props = {
-    show: boolean,
-    saveAsJson: () => void,
-    saveAsHTML: (targetLink: string) => void,
+    show: boolean, 
     popupShow: (show: boolean) => void, 
 }
 
-const SavePopup = ({show, saveAsJson, saveAsHTML, popupShow} : Props) => {
+const SavePopup = ({show, popupShow} : Props) => {
     const [popupType, setPopupType] = useState<string>('fullOptions'); // fullOptions or htmlSave
     const [targetLink, setTargetLink] = useState<string>('');
+    const {saveFromAsHTML, saveFromAsJSON} = useContext(FormContext);
 
     function handleHTMLBtnClicked(e: React.MouseEvent<HTMLButtonElement>) {
         popupShow(false);
         setTimeout( () => setPopupType('fullOptions'), 500)
-        setTimeout(() => saveAsHTML(targetLink), 1000);
+        setTimeout(() => saveFromAsHTML(targetLink), 1000);
     }
     function handleJSONBtnClicked(e: React.MouseEvent<HTMLButtonElement>) {
         popupShow(false);
         setTimeout( () => setPopupType('fullOptions'), 500)
-        saveAsJson();
+        saveFromAsJSON();
     }
     function handleCancelBtnClicked(e: React.MouseEvent<HTMLButtonElement>) {
         popupShow(false);
