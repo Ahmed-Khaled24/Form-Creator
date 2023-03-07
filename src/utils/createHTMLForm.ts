@@ -130,6 +130,8 @@ export default function createHTMLForm({segments, title}: FormData, targetLink: 
                 }
                 h1{
                     width: 100%;
+                    border-bottom: 2px solid #3A98B9;
+                    padding: 5px;
                 }
                 form {
                     display: flex;
