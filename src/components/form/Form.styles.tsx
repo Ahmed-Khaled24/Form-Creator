@@ -11,7 +11,8 @@ export const FormBody = styled.div`
 `;
 
 export const EmptyFromPlaceHolder = styled.div`
-    font-size: 54px;
+    font-size: 50px;
+    font-family: cursive;
     display: flex;
     align-items: center;
     justify-content: center;
